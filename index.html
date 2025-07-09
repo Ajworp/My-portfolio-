@@ -4,154 +4,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="navbar.css"> -->
-    <link rel="stylesheet" href="navbar.css">
-    <script src="navbar.js"></script>
-    <link rel="stylesheet" href="section1.css">
-    <!-- <script src="navbar.js"></script> -->
+    <meta name="description"
+        content="ZeroSEK Solutions - offers expert VAPT, modern web development, and College ERP systems to secure and streamline your digital future.">
+    <meta name="keywords"
+        content="ZeroSEK, ZeroSEK Solutions, ZeroSek Portfolio, zerosek, zerosek solutions zerosek Website, VAPT, Web Development, College ERP, Security Testing, Web Application Security, API Security, Network Security, Smart Contract Audit, MERN Stack">
+    <title>ZeroSEK Solutions | VAPT, Web Development & ERP Systems</title>
+    <meta property="og:title" content="ZeroSEK Solutions | VAPT, Web Development & ERP Systems">
+    <meta property="og:description"
+        content="Expert cybersecurity testing, MERN web development, and education ERP systems tailored to your digital goals.">
+    <meta property="og:image" content="https://zerosek.com/og-image.jpg">
+    <meta property="og:url" content="https://zerosek.com">
+    <meta name="twitter:card" content="summary_large_image">
 
-    <title>Abhishek's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="herolog.png">
 </head>
 
 <body>
-    <nav class="nav">
-        <a class="logo" href="#"> Portfolio</a>
-        <button class="nav-toggle" onclick="toggleNav()">
-            <svg class="navbar-btn" aria-hidden="true" fill="none" viewBox="0 0 17 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 1h15M1 7h15M1 13h15" />
-            </svg>
-            <svg class="navbar-Cbtn" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 14 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
-            </svg>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="zeroseklogo.png" alt="Zeroseksolutions Logo" id="logo-img">
+                    <span class="logo-text">Solutions</span>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li class="li-link"><a href="#home">Home</a></li>
+                    <li class="li-link"><a href="about.html">About Us</a></li>
+                    <li class="li-link"><a href="#services">Services</a></li>
+                    <li class="li-link"><a href="#products">Products</a></li>
+                    <li class="li-link"><a href="#blog">Blog</a></li>
+                    <li class="li-link"><a href="#contact">Contact</a></li>
+                    <!-- <li class="li-link"><a class="submit-btn" id="bookmeeting" href="#book-meeting">Book Meeting</a>
+                    </li> -->
+                    <!-- <li class="li-link">
+                        <div class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-sun"></i>
+                            <span>Light Mode</span>
+                        </div>
+                    </li> -->
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
 
-        </button>
-        <ul class="ul">
-            <li class="navbar"><a href="#first-section">Home</a></li>
-            <li class="navbar"><a href="#about">About</a></li>
-            <li class="navbar"><a href="#skills">Skills</a></li>
-            <li class="navbar"><a href="#projects">Projects</a></li>
-        </ul>
-    </nav>
-    </div>
-    <div>
-        <button class="scroll-up" onclick="sbtn()"></button>
-    </div>
-    <section class="first-section">
-        <!-- <div class="imgname"><img src="Abhishek.png" alt="" class="logo-img"></div> -->
-        <div class="name">Abhishek Jaiswal</div>
-        
-        <div class="objective">Hi I am a student of computer science student and I am passionate about creating beautiful and user-friendly websites. I have a strong foundation in HTML, CSS, and JavaScript, and I am always eager to learn new technologies.</div>
+    <!-- Hero Section -->
+    <section class="hero" id="home" data-animate="fade-in">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1><span class="highlight">ZeroSEK Solutions</span>: Build Smart. Stay Secure </h1>
+                <div class="mobile-hero-image">
+                    <img src="herolog.png" alt="Cybersecurity & Web Solutions" loading="lazy">
+                </div>
+                <p class="tagline">
+                    Your partner in Cybersecurity, Web Innovation, and Educational Solutions —
+                    <span class="quote-text">"Empowering your digital future through cutting-edge development and
+                        bulletproof security."</span>
+                </p>
+
+                <!-- <p class="tagline">Your Partner in Cybersecurity, Web Innovation, and Educational Solutions that <span
+                        class="quote-text">"Empowering your digital future through cutting-edge development and
+                        bulletproof security".</span></p> -->
+                <!-- <p class="description">
+                    We specialize in Vulnerability Assessment and Penetration Testing (VAPT)
+                    including Web, API and Network. Our Web Development team delivers
+                    modern MERN stack solutions from scratch to deployment, landing pages, Static Website, Portfolio and
+                    maintenance. We also
+                    offer a powerful College ERP System to streamline educational administration.
+                </p> -->
+                <p class="description">
+                    We provide end-to-end cybersecurity and development solutions, specializing in Vulnerability
+                    Assessment & Penetration Testing (VAPT) for Web, API, and Network security. Our web development team
+                    delivers high-performance, modern Dynamic and Static websites or Web App using the MERN stack,
+                    including landing
+                    pages, e-commerce sites, portfolios, and full-scale solutions with ongoing support. We also offer a
+                    powerful College ERP System that streamlines academic and administrative operations for educational
+                    institutions.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#services" class="cta-button">Explore Services</a>
+                    <a href="#contact" class="cta-button secondary">Contact Us</a>
+                    <!-- <a href="#book-meeting" class="cta-button secondary">Book a Free Consultation</a> -->
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="herolog.png" alt="Cybersecurity & Web Solutions">
+            </div>
+        </div>
     </section>
-    <!-- <section>
-        <h1 class="paragraph">second section</h1>
+
+
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a wide range of professional services to meet your business needs</p>
+            </div>
+            <div class="services-grid">
+                <!-- VAPT Services -->
+                <div class="service-card" data-animate="fade-left" data-delay="1">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>VAPT Services</h3>
+                    <p>Comprehensive vulnerability assessment and penetration testing to secure your digital assets.</p>
+                    <ul class="service-list">
+                        <li>Web Application VAPT</li>
+                        <li>API VAPT</li>
+                        <li>Network VAPT</li>
+                    </ul>
+                </div>
+
+                <!-- Web Development -->
+                <div class="service-card" data-animate="fade-in" data-delay="2">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Custom web solutions tailored to your business requirements.</p>
+                    <ul class="service-list">
+                        <li>Website from scratch to Deployment</li>
+                        <li>MERN Stack Development</li>
+                        <li>Simple Landing Pages</li>
+                        <li>Website Maintenance</li>
+                    </ul>
+                </div>
+
+                <!-- Other Services -->
+                <div class="service-card" data-animate="fade-right" data-delay="3">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Other Solutions</h3>
+                    <p>Additional services to support your business growth.</p>
+                    <ul class="service-list">
+                        <li>Security Consulting</li>
+                        <li>Code Review</li>
+                        <li>Compliance Assistance</li>
+                        <li>Technical Support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section products" id="products">
+        <div class="container">
+            <div class="section-title" data-animate="fade-in">
+                <h2>Our Products</h2>
+                <p>Innovative solutions designed to streamline your operations</p>
+            </div>
+            <div class="product-card" data-animate="zoom-in">
+                <div class="product-image">
+                    <img src="rep.jpg" alt="College ERP System">
+                </div>
+                <div class="product-content">
+                    <h3>College ERP System</h3>
+                    <p>Our comprehensive College ERP System is designed to automate and streamline all administrative
+                        and academic processes in educational institutions. From student admissions to examination
+                        management, our solution covers all aspects of college administration.</p>
+                    <p>Key features include student information management, attendance tracking, fee collection,
+                        examination management, library management, and reporting dashboard.</p>
+                    <a href="#book-meeting" class="cta-button">Request Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title" data-animate="fade-in">
+                <h2>What Our Clients Say</h2>
+                <p>Real feedback from organizations we've helped secure and grow</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-animate="fade-left" data-delay="1">
+                    <p>"ZeroSek Solutions helped us identify critical vulnerabilities in our system. Their team is
+                        highly
+                        professional and efficient!"</p>
+                    <h4>- Ankit Sharma, CTO at FinEdge</h4>
+                </div>
+                <div class="testimonial-card" data-animate="fade-right" data-delay="2">
+                    <p>"Our College ERP system is now fully automated and hassle-free, thanks to the expert team at
+                        Zerosek solutions."</p>
+                    <h4>- Dr. Priya Mehta, Principal, Sunrise College</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section blog" id="blog">
+        <div class="container">
+            <div class="section-title" data-animate="fade-in">
+                <h2>Latest Insights</h2>
+                <p>Stay updated with the latest trends in cybersecurity and web development</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-post" data-animate="fade-left" data-delay="1">
+                    <h3>Top 10 Web Vulnerabilities in 2025</h3>
+                    <p>Understand the most common threats businesses face and how to mitigate them effectively.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div class="blog-post" data-animate="fade-right" data-delay="2">
+                    <h3>Why Every College Needs a Cloud-Based ERP</h3>
+                    <p>Explore how digital transformation is reshaping education management.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the team -->
+
+    <!-- <section class="section team" id="team">
+        <div class="container">
+            <div class="section-title" data-animate="fade-in">
+                <h2>Meet Our Team</h2>
+                <p>Driven by passion, backed by expertise</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member" data-animate="fade-left" data-delay="1">
+                    <img src="divyesh.jpg" alt="Rahul Verma">
+                    <h4>Divyesh Chauhan</h4>
+                    <p>Founder & Cybersecurity Expert</p>
+                </div>
+                <div class="team-member" data-animate="fade-right" data-delay="2">
+                    <img src="abhi.jpg" alt="Anjali Deshmukh">
+                    <h4>Abhishek Jaiswal</h4>
+                    <p>Full-Stack Developer</p>
+                </div>
+            </div>
+        </div>
     </section> -->
-    <section id="about">
-        <h1 class="sec-head">About Me</h1>
-        <p class="paragraph">Hello! My name is Abhishek Jaiswal and I am a fresher web developer. I am passionate about
-            creating beautiful and user-friendly websites. I have a strong foundation in HTML, CSS, and JavaScript, and
-            I am always eager to learn new technologies.
-            I am currently looking for a new opportunity to join a team of talented developers and to continue to grow
-            my skills. I am confident that I can be a valuable asset to any team, and I am eager to contribute to the
-            success of your company.</p>
-    </section>
-    <section id="skills">
-        <h2 class="sec-head">Skills</h2>
-        <div class="paragraph">HTML , CSS3 , JavaScript , ReactJs , C Programing , Python </div>
-    </section>
-    <section id="projects">
-        <h2 class="sec-head">Project</h2>
-        <div class="paragraph">
-            <h3 class="paragraph">
-                <li>Hotel booking system</li>
-            </h3>
-            <li class="paragraph">This project will involve building a hotel website using "React JS". The website will
-                allow users to browse hotels, view detailed information about each hotel, check availability, and make
-                reservations. The website will also include a user authentication system so that users can create
-                accounts and manage their bookings.</li>
-            <li class="paragraph">The website will also use a responsive design so that it can be viewed on a variety of
-                devices, including desktop computers, laptops, tablets, and smartphones.</li>
-            <a href="#" class="anchor">View Project</a>
-        </div>
-        <!-- <div class="paragraph">
-            <h3 class="paragraph">Project 2</h3>
-            <p class="paragraph">Description of Project 2.</p>
-            <a href="#" class="anchor">View Project</a>
-        </div> -->
-    </section>
-    <section id="resume">
-        <div class="paragraph">
-            <h2 class="sec-head">Resume</h2>
-            <!-- Include a link to your downloadable resume -->
-            <a href="Resume.pdf" target="_blank" class="anchor">Download Resume</a>
+
+    <!-- Faq Section -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <div class="section-title" data-animate="fade-in">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-item" data-animate="fade-left" data-delay="1">
+                <h4>What industries do you serve?</h4>
+                <p>We work with clients across education, fintech, healthcare, e-commerce, and government sectors.</p>
+            </div>
+            <div class="faq-item" data-animate="fade-left" data-delay="1">
+                <h4>How long does a VAPT engagement take?</h4>
+                <p>Depending on the scope, it typically takes between 3 to 10 business days.</p>
+            </div>
         </div>
     </section>
-    <section id="contact">
-        <h2 class="sec-head">Contact</h2>
-        <div class="paragraph">Email: aj478631@gmail.com , Mobile: 9838XXXXXX </div>
-        <div class="paragraph">
-            <a href="https://www.linkedin.com/in/abhishek-jaiswal-8541a9222/">
-                <svg class="svg-img" aria-hidden="true" fill="currentColor" viewBox="0 0 15 15">
-                    <path fill-rule="evenodd"
-                        d="M7.979 5v1.586a3.5 3.5 0 0 1 3.082-1.574C14.3 5.012 15 7.03 15 9.655V15h-3v-4.738c0-1.13-.229-2.584-1.995-2.584-1.713 0-2.005 1.23-2.005 2.5V15H5.009V5h2.97ZM3 2.487a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
-                        clip-rule="evenodd"></path>
-                    <path d="M3 5.012H0V15h3V5.012Z"></path>
-                </svg>
-            </a>   .
-            <a href="https://github.com/Ajworp">
-                <svg class="svg-img" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                        d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </a>  .
-            <a href="https://www.instagram.com/abhishek_jaiswals/" >
-                <svg class="svg-insta" x="0px" y="0px" width="45" height="25" viewBox="0,0,255.987,255.987"
-                    style="fill:#000000;">
-                    <g  fill="#212121" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                        font-family="none" font-weight="none" font-size="none" text-anchor="none"
-                        style="mix-blend-mode: normal">
-                        <path d="M0,255.987v-255.987h255.987v255.987z" id="bgRectangle"></path>
-                    </g>
-                    <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                        font-family="none" font-weight="none" font-size="none" text-anchor="none"
-                        style="mix-blend-mode: normal">
-                        <g transform="scale(5.12,5.12)">
-                            <path
-                                d="M16,3c-7.16752,0 -13,5.83248 -13,13v18c0,7.16752 5.83248,13 13,13h18c7.16752,0 13,-5.83248 13,-13v-18c0,-7.16752 -5.83248,-13 -13,-13zM16,5h18c6.08648,0 11,4.91352 11,11v18c0,6.08648 -4.91352,11 -11,11h-18c-6.08648,0 -11,-4.91352 -11,-11v-18c0,-6.08648 4.91352,-11 11,-11zM37,11c-1.10457,0 -2,0.89543 -2,2c0,1.10457 0.89543,2 2,2c1.10457,0 2,-0.89543 2,-2c0,-1.10457 -0.89543,-2 -2,-2zM25,14c-6.06329,0 -11,4.93671 -11,11c0,6.06329 4.93671,11 11,11c6.06329,0 11,-4.93671 11,-11c0,-6.06329 -4.93671,-11 -11,-11zM25,16c4.98241,0 9,4.01759 9,9c0,4.98241 -4.01759,9 -9,9c-4.98241,0 -9,-4.01759 -9,-9c0,-4.98241 4.01759,-9 9,-9z">
-                            </path>
-                        </g>
-                    </g>
-                </svg>
-            </a>  .
-            <a href="https://www.facebook.com/profile.php?id=100091686218448">
-                <svg class="svg-img" aria-hidden="true" fill="currentColor" viewBox="0 0 8 19">
-                    <path fill-rule="evenodd"
-                        d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </a>  .
-            <a href="https://www.youtube.com/channel/UC2-7rBrjzAbDjnBANsbGT6A">
-                <svg class="svg-img" aria-hidden="true" fill="currentColor" viewBox="0 0 20 14">
-                    <path fill-rule="evenodd"
-                        d="M19.7 3.037a4.26 4.26 0 0 0-.789-1.964 2.84 2.84 0 0 0-1.984-.84c-2.767-.2-6.926-.2-6.926-.2s-4.157 0-6.928.2a2.836 2.836 0 0 0-1.983.84A4.225 4.225 0 0 0 .3 3.038a30.148 30.148 0 0 0-.2 3.206v1.5c.01 1.071.076 2.142.2 3.206.094.712.363 1.39.784 1.972.604.536 1.38.837 2.187.848 1.583.15 6.731.2 6.731.2s4.161 0 6.928-.2a2.844 2.844 0 0 0 1.985-.84 4.27 4.27 0 0 0 .787-1.965c.124-1.064.19-2.135.2-3.206V6.243a30.672 30.672 0 0 0-.202-3.206ZM8.008 9.59V3.97l5.4 2.819-5.4 2.8Z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </a>  .
-            <a href="https://twitter.com/Abhishek478631">
-                <svg class="svg-img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" d="M12.186 8.672 18.743.947h-2.927l-5.005 5.9-4.44-5.9H0l7.434 9.876-6.986 8.23h2.927l5.434-6.4 4.82 6.4H20L12.186 8.672Zm-2.267 2.671L8.544 9.515 3.2 2.42h2.2l4.312 5.719 1.375 1.828 5.731 7.613h-2.2l-4.699-6.237Z"></path>
-                  </svg>
-            </a>
+
+
+    <!-- Book Meeting Section -->
+    <!-- <section class="book-meeting" id="book-meeting">
+        <div class="container" data-animate="zoom-in">
+            <div class="header-meeting-book">
+                <h2>Book a Meeting With Us</h2>
+                <p>Schedule a consultation with our experts to discuss your project requirements</p>
+            </div>
+
+            <form class="meeting-form" id="meetingForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Interested In</label>
+                    <select id="service" name="service">
+                        <option class="service-option" value="">Select a service</option>
+                        <option class="service-option" value="web-vapt">Web VAPT</option>
+                        <option class="service-option" value="api-vapt">API VAPT</option>
+                        <option class="service-option" value="network-vapt">Network VAPT</option>
+                        <option class="service-option" value="smart-contract-vapt">Smart Contract VAPT</option>
+                        <option class="service-option" value="web-development">Web Development</option>
+                        <option class="service-option" value="college-erp">College ERP System</option>
+                        <option class="service-option" value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Schedule Meeting</button>
+            </form>
+        </div>
+    </section> -->
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title" data-animate="fade-in">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team for any inquiries or support</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info" data-animate="fade-left" data-delay="1">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Our Office</h4>
+                            <p>Sarnath, Varanasi, Uttar Pradesh India 221007</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p><a class="contact-us-links" href="tel:+916387705669">+91 6387705669</a></p>
+                            <p><a class="contact-us-links" href="tel:+919838587277">+91 9838587277</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p><a class="contact-us-links" href="mailto:contact@zerosek.com">contact@zerosek.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Working Hours</h4>
+                            <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-map" data-animate="fade-in">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22944.008036110372!2d83.00419223762022!3d25.37297453651202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2ee870d6a12b%3A0xa1c385b2ea1fa974!2z4KS44KS-4KSw4KSo4KS-4KSlLCDgpLXgpL7gpLDgpL7gpKPgpLjgpYAsIOCkieCkpOCljeCkpOCksCDgpKrgpY3gpLDgpKbgpYfgpLYgMjIxMDA3!5e1!3m2!1shi!2sin!4v1751201464346!5m2!1shi!2sin"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+            </div>
         </div>
     </section>
+
+    <!-- Footer -->
     <footer>
-        <p class="foot">&copy; 2024 Abhishek Jaiswal - Portfolio</p>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="zeroseklogo.png" alt="Ashtrasolutions Logo" loading="lazy">
+                    </div>
+                    <p>Providing cutting-edge security solutions and web development services to help businesses thrive
+                        in the digital landscape.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61578268196863" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/zeroseksolution" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/zerosek-solutions-llp-b0722b374/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/zeroseksolutions/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <!-- <li><a href="#book-meeting">Book a Meeting</a></li> -->
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <a class="footer-contactus-links"
+                            href="https://www.google.com/maps/place/%E0%A4%B0%E0%A5%81%E0%A4%A6%E0%A5%8D%E0%A4%B0+%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%88%E0%A4%9F/@25.369287,83.023739,348m/data=!3m1!1e3!4m6!3m5!1s0x398e2eefbc0c0719:0x6e1eda5f5d2db608!8m2!3d25.3692869!4d83.023739!16s%2Fg%2F11d_ymjwr6?hl=hi&entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D">Sarnath,
+                            Varanasi, Uttar Pradesh India 221007</a></p>
+                    <p><i class="fas fa-phone-alt"></i>
+                        <a class="footer-contactus-links" href="tel:+916387705669">+916387705669</a>
+                        <a class="footer-contactus-links" href="tel:+919838587277">+919838587277</a>
+                    </p>
+                    <p><i class="fas fa-envelope"></i> <a class="footer-contactus-links"
+                            href="mailto:contact@zerosek.com">contact@zerosek.com</a></p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 10:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ZeroSek Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
+
 </body>
 
 </html>

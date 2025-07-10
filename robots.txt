@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zerosek.com/sitemap.xml

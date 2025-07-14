@@ -87,81 +87,80 @@ nav {
 }
 
 
+
+
+
+
+
+/* About Section Styling */
+.about-section {
+  padding: 60px 20px;
+  /* background: linear-gradient(135deg, #ffffff, #f3f4f6); */
+}
+
 .about-container {
-  /* background: rgba(255, 255, 255, 0.05); */
-  /* border: 1px solid rgba(255, 255, 255, 0.1); */
-  /* backdrop-filter: blur(10px); */ 
-  /* max-width: 900px; */
-  /* border-radius: 16px; */
-  /* box-shadow: 0 0 30px rgba(0, 0, 0, 0.25); */
+  max-width: 1100px;
+  margin: auto;
+  /* background: #ffffff; */
   padding: 40px;
-
-  animation: fadeIn 1.2s ease-in-out;
-} 
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  border-radius: 20px;
+  /* box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08); */
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
 }
 
-.about-section h1 {
-  font-size: 2.8rem;
-  text-align: center;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.about-container:hover {
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings and Tagline */
+.about-container h1 {
+  font-size: 2.5rem;
   font-weight: 700;
+  color: #0d6efd;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-.tagline {
+.about-container .tagline {
   font-size: 1.2rem;
+  color: #e7e7e7;
   text-align: center;
-  color: #ccc;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   font-style: italic;
 }
 
-.content p {
+/* Paragraph Content */
+.about-container .content p {
   font-size: 1.05rem;
+  color: #ffffff;
   margin-bottom: 20px;
-  color: #e1e1e1;
   line-height: 1.8;
 }
 
-.content p strong {
-  color: #ffffff;
-  font-weight: 600;
+.about-container .content p strong {
+  color: #0d6efd;
 }
 
-/* Responsive */
+/* Responsive Layout */
 @media (max-width: 768px) {
   .about-container {
-    padding: 30px 20px;
+    padding: 25px;
   }
 
-  .about-section h1 {
+  .about-container h1 {
     font-size: 2rem;
   }
 
-  .tagline {
+  .about-container .tagline {
     font-size: 1rem;
   }
 
-  .content p {
-    font-size: 0.95rem;
+  .about-container .content p {
+    font-size: 1rem;
   }
 }
-
-
-
-
 
 
 

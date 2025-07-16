@@ -208,6 +208,11 @@ nav {
     margin-bottom: 2rem;
 }
 
+.service-list-link{
+    color: white;
+    text-decoration: none;
+}
+
 .section-title h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;

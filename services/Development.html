@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Services | Zerosek Solutions</title>
+    <meta name="title" content="Development Services | Zerosek Solutions">
+    <meta name="description" content="Explore secure and scalable development services including web apps, API integration, and payment systems. Powered by Zerosek Solutions.">
+    <meta name="keywords" content="Web Development, API Integration, Payment Gateway, App Security, Scalable Architecture, Zerosek Solutions, India, OAuth, JWT, PWA, SPA">
+    <meta name="author" content="Zerosek Solutions">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Development Services | Zerosek Solutions">
+    <meta property="og:description" content="From secure web applications to API development and payment integration, Zerosek offers business-ready digital solutions.">
+    <meta property="og:image" content="https://zerosek.com/assets/herolog.png"> <!-- Replace with actual image URL -->
+    <meta property="og:url" content="https://zerosek.com/services/Development.html">
+    <meta property="og:site_name" content="Zerosek Solutions">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Development Services | Zerosek Solutions">
+    <meta name="twitter:description" content="Secure, scalable, and modern development services tailored to your business needs.">
+    <meta name="twitter:image" content="https://zerosek.com/assets/herolog.png"> <!-- Replace with actual image URL -->
+
+    <!-- Favicon (Optional but Recommended) -->
+    <link rel="icon" type="image/png" href="../assets/herolog.png">
+
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6e45e2;
+            --secondary: #88d3ce;
+            --dark: #1a1a2e;
+            --darker: #16213e;
+            --light: #f1f1f1;
+            --accent: #ff7e5f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+            border-radius: 10px;
+        }
+
+        .hero-heading::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(110, 69, 226, 0.1) 0%, rgba(17, 17, 17, 0) 70%);
+            animation: pulse 15s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(25%, 25%);
+            }
+            100% {
+                transform: translate(-25%, -25%);
+            }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), transparent);
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--accent);
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            animation: slideUp 1s ease-out;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.5s forwards;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(110, 69, 226, 0.3);
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.2s; }
+        .service-card:nth-child(2) { animation-delay: 0.4s; }
+        .service-card:nth-child(3) { animation-delay: 0.6s; }
+        .service-card:nth-child(4) { animation-delay: 0.8s; }
+        .service-card:nth-child(5) { animation-delay: 1s; }
+        .service-card:nth-child(6) { animation-delay: 1.2s; }
+        .service-card:nth-child(7) { animation-delay: 1.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .offerings-list {
+            list-style-type: none;
+            margin: 1rem 0;
+        }
+
+        .offerings-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .offerings-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .why-us {
+            background: rgba(136, 211, 206, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 4rem 0;
+            border: 1px solid rgba(136, 211, 206, 0.2);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .why-us-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .why-us-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-top: 0.3rem;
+        }
+
+        .cta {
+            text-align: center;
+            margin: 4rem 0;
+            animation: pulseScale 2s infinite;
+        }
+
+        @keyframes pulseScale {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(110, 69, 226, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(110, 69, 226, 0.6);
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            filter: blur(40px);
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate(50px, 100px) rotate(180deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .intro {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes" id="shapes-container"></div>
+    
+        <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <nav>
+                <div class="logo">
+                    <img src="../assets/zeroseklogo.png" alt="Zeroseksolutions Logo" id="logo-img">
+                    <span class="logo-text">Solutions</span>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li class="li-link"><a href="../index.html">Home</a></li>
+                    <li class="li-link"><a href="../about/index.html">About Us</a></li>
+                    <li class="li-link"><a href="../index.html#services">Services</a></li>
+                    <li class="li-link"><a href="../index.html#products">Products</a></li>
+                    <li class="li-link"><a href="../index.html#blog">Blog</a></li>
+                    <li class="li-link"><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero-heading">
+            <h1>Our Development Services</h1>
+        </div>
+        
+        <section>
+            <p class="intro">
+                At Zerosek Solutions, we offer a comprehensive range of development services tailored to modern business needs. 
+                Our solutions are built using industry-leading technologies, security best practices, and scalable architectures. 
+                Explore our specialized subcategories below:
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Web Application Development</h3>
+                    <p>
+                        We build high-performance, scalable, and responsive web applications tailored to your specific needs. 
+                        From simple business portals to complex enterprise-grade systems, we deliver robust applications that drive digital growth.
+                    </p>
+                    <h4>Key Offerings:</h4>
+                    <ul class="offerings-list">
+                        <li>Full-stack development (Frontend + Backend)</li>
+                        <li>Responsive UI/UX design</li>
+                        <li>Single Page Applications (SPA)</li>
+                        <li>Progressive Web Apps (PWA)</li>
+                        <li>Integration with third-party services</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>API Development & Integration</h3>
+                    <p>
+                        APIs are the backbone of modern applications. We design, develop, and integrate RESTful and GraphQL APIs 
+                        with a focus on performance, scalability, and secure data exchange.
+                    </p>
+                    <h4>Key Offerings:</h4>
+                    <ul class="offerings-list">
+                        <li>Custom RESTful API development</li>
+                        <li>GraphQL APIs</li>
+                        <li>Third-party API integration (Google, Stripe, AWS, etc.)</li>
+                        <li>API versioning and documentation (Swagger/OpenAPI)</li>
+                        <li>Secure token-based access (JWT, OAuth2.0)</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Authentication & Authorization</h3>
+                    <p>
+                        User identity and access control are critical components of modern apps. We implement strong authentication 
+                        mechanisms and fine-grained authorization policies using industry standards.
+                    </p>
+                    <h4>Key Offerings:</h4>
+                    <ul class="offerings-list">
+                        <li>Secure login systems (email/password, multi-factor)</li>
+                        <li>OAuth2.0, OpenID Connect integration</li>
+                        <li>Single Sign-On (SSO)</li>
+                        <li>Role-based access control (RBAC)</li>
+                        <li>Session management and token security</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Security Implementation</h3>
+                    <p>
+                        Security is embedded in every line of code we write. We follow OWASP top 10 and other globally recognized 
+                        security standards to protect your applications from evolving threats.
+                    </p>
+                    <h4>Key Offerings:</h4>
+                    <ul class="offerings-list">
+                        <li>Input validation & sanitization</li>
+                        <li>CSRF, XSS, and SQLi prevention</li>
+                        <li>HTTPS & secure headers implementation</li>
+                        <li>Rate limiting & brute-force protection</li>
+                        <li>Secure storage (password hashing, encryption)</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Payment Gateway Integration</h3>
+                    <p>
+                        We simplify online transactions by integrating reliable, secure, and globally trusted payment gateways into your applications.
+                    </p>
+                    <h4>Key Offerings:</h4>
+                    <ul class="offerings-list">
+                        <li>Stripe, Razorpay, PayPal, and more</li>
+                        <li>PCI-DSS compliance</li>
+                        <li>Secure transaction flow (tokenization)</li>
+                        <li>Subscription & recurring payment support</li>
+                        <li>Invoicing and payment tracking</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Custom Business Logic & Workflows</h3>
+                    <p>
+                        Every business is unique. We develop tailored solutions that automate workflows, manage operations, 
+                        and support your digital transformation.
+                    </p>
+                    <h4>Key Offerings:</h4>
+                    <ul class="offerings-list">
+                        <li>Custom backend logic</li>
+                        <li>Workflow automation</li>
+                        <li>Data modeling & transformation</li>
+                        <li>Microservices-based architecture</li>
+                        <li>Admin dashboards and analytics</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Maintenance & Support</h3>
+                    <p>
+                        Our engagement doesn't end at deployment. We offer post-launch maintenance, support, and optimization 
+                        to ensure smooth performance and scalability.
+                    </p>
+                    <h4>Key Offerings:</h4>
+                    <ul class="offerings-list">
+                        <li>Bug fixes & performance tuning</li>
+                        <li>Security patching & updates</li>
+                        <li>Server & infrastructure monitoring</li>
+                        <li>Ongoing enhancements</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="why-us">
+            <h2>Why Choose Us?</h2>
+            <div class="why-us-grid">
+                <div class="why-us-item">
+                    <div class="why-us-icon">🛡️</div>
+                    <div>
+                        <h4>Security-First Approach</h4>
+                        <p>Our code is secure by design, following the latest standards and practices.</p>
+                    </div>
+                </div>
+                
+                <div class="why-us-item">
+                    <div class="why-us-icon">⚙️</div>
+                    <div>
+                        <h4>Scalable Architectures</h4>
+                        <p>We build systems that grow with your business.</p>
+                    </div>
+                </div>
+                
+                <div class="why-us-item">
+                    <div class="why-us-icon">🔗</div>
+                    <div>
+                        <h4>Seamless Integrations</h4>
+                        <p>From authentication to payments, we connect everything effortlessly.</p>
+                    </div>
+                </div>
+                
+                <div class="why-us-item">
+                    <div class="why-us-icon">📈</div>
+                    <div>
+                        <h4>Business-Driven Development</h4>
+                        <p>We focus on delivering measurable outcomes for your business.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta">
+            <h2>Ready to Build with Confidence?</h2>
+            <p>Contact us today to learn how we can help bring your ideas to life — securely, efficiently, and at scale.</p>
+            <button class="cta-button">Get in Touch</button>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="../assets/zeroseklogo.png" alt="Ashtrasolutions Logo" loading="lazy">
+                    </div>
+                    <p>Providing cutting-edge security solutions and web development services to help businesses thrive
+                        in the digital landscape.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61578268196863" target="_blank"
+                            class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/zeroseksolution" target="_blank" class="social-link"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/zerosek-solutions-llp-55b2aa374/" target="_blank"
+                            class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/zeroseksolutions/" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#products">Products</a></li>
+                        <li><a href="../about/index.html">About Us</a></li>
+                        <li><a href="../index.html#blog">Blog</a></li>
+                        <!-- <li><a href="#book-meeting">Book a Meeting</a></li> -->
+                        <li><a href="../index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <a class="footer-contactus-links"
+                            href="https://www.google.com/maps/place/%E0%A4%B0%E0%A5%81%E0%A4%A6%E0%A5%8D%E0%A4%B0+%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%88%E0%A4%9F/@25.369287,83.023739,348m/data=!3m1!1e3!4m6!3m5!1s0x398e2eefbc0c0719:0x6e1eda5f5d2db608!8m2!3d25.3692869!4d83.023739!16s%2Fg%2F11d_ymjwr6?hl=hi&entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D">Sarnath,
+                            Varanasi, Uttar Pradesh India 221007</a></p>
+                    <p><i class="fas fa-phone-alt"></i>
+                        <a class="footer-contactus-links" href="tel:+916387705669">+916387705669</a>
+                        <a class="footer-contactus-links" href="tel:+919838587277">+919838587277</a>
+                    </p>
+                    <p><i class="fas fa-envelope"></i> <a class="footer-contactus-links"
+                            href="mailto:contact@zerosek.com">contact@zerosek.com</a></p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 10:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ZeroSek Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create floating shapes
+        document.addEventListener('DOMContentLoaded', function() {
+            const shapesContainer = document.getElementById('shapes-container');
+            const colors = ['#6e45e2', '#88d3ce', '#ff7e5f'];
+            
+            for (let i = 0; i < 10; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('shape');
+                
+                // Random size between 100 and 300px
+                const size = Math.random() * 200 + 100;
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                
+                // Random position
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration and delay
+                shape.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                shape.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // Random color
+                shape.style.background = `linear-gradient(45deg, ${colors[Math.floor(Math.random() * colors.length)]}, ${colors[Math.floor(Math.random() * colors.length)]})`;
+                
+                shapesContainer.appendChild(shape);
+            }
+            
+            // Add hover effect to service cards
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.background = 'rgba(255, 255, 255, 0.1)';
+                    card.style.borderColor = 'rgba(110, 69, 226, 0.5)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.background = 'rgba(255, 255, 255, 0.05)';
+                    card.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                });
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

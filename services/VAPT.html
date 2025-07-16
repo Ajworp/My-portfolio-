@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAPT Services | Zerosek Solutions</title>
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="Comprehensive VAPT Services | Zerosek Solutions">
+    <meta name="description" content="Discover professional VAPT services including Web App, API, and Network testing aligned with OWASP, NIST, MITRE, and CERT-In standards. Secure your digital assets with Zerosek Solutions.">
+    <meta name="keywords" content="VAPT, Vulnerability Assessment, Penetration Testing, Web Application Security, API Security, Network Security, OWASP, CERT-In, MITRE, NIST, Zerosek Solutions, Top VAPT service provider">
+    <meta name="author" content="Zerosek Solutions">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Comprehensive VAPT Services | Zerosek Solutions">
+    <meta property="og:description" content="Zerosek Solutions offers expert VAPT services tailored to web apps, APIs, and networks. Ensure security with compliance-ready testing.">
+    <meta property="og:image" content="https://zerosek.com/assets/herolog.png">
+    <meta property="og:url" content="https://zerosek.com/services/VAPT.html">
+    <meta property="og:site_name" content="Zerosek Solutions">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Comprehensive VAPT Services | Zerosek Solutions">
+    <meta name="twitter:description" content="Secure your infrastructure with industry-standard VAPT services from Zerosek Solutions.">
+    <meta name="twitter:image" content="https://zerosek.com/assets/herolog.png">
+
+        <!-- Favicon (Optional but Recommended) -->
+    <link rel="icon" type="image/png" href="../assets/herolog.png">
+
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a6bff;
+            --secondary: #00e0c7;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --accent: #ff6b6b;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+            border-radius: 10px;
+        }
+
+       .hero-heading::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74, 107, 255, 0.1) 0%, rgba(2, 6, 23, 0) 70%);
+            animation: pulse 15s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(25%, 25%);
+            }
+
+            100% {
+                transform: translate(-25%, -25%);
+            }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), transparent);
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--accent);
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem;
+            color: var(--warning);
+        }
+
+        p {
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            animation: slideUp 1s ease-out;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.5s forwards;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(74, 107, 255, 0.3);
+        }
+
+        .service-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .service-card:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .testing-list {
+            list-style-type: none;
+            margin: 1rem 0;
+        }
+
+        .testing-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .testing-list li::before {
+            content: '🔍';
+            position: absolute;
+            left: 0;
+            color: var(--warning);
+        }
+
+        .env-list {
+            list-style-type: none;
+            margin: 1rem 0;
+        }
+
+        .env-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .env-list li::before {
+            content: '🌐';
+            position: absolute;
+            left: 0;
+        }
+
+        .why-us {
+            background: rgba(0, 224, 199, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 4rem 0;
+            border: 1px solid rgba(0, 224, 199, 0.2);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .why-us-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .why-us-icon {
+            font-size: 1.5rem;
+            margin-top: 0.3rem;
+        }
+
+        .deliverables {
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 107, 107, 0.2);
+        }
+
+        .deliverables-list {
+            list-style-type: none;
+            margin: 1rem 0;
+        }
+
+        .deliverables-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.8rem;
+        }
+
+        .deliverables-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .env-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .env-table th,
+        .env-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .env-table th {
+            background: rgba(74, 107, 255, 0.2);
+            color: var(--secondary);
+        }
+
+        .env-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .env-table tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .cta {
+            text-align: center;
+            margin: 4rem 0;
+            animation: pulseScale 2s infinite;
+        }
+
+        @keyframes pulseScale {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(74, 107, 255, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 107, 255, 0.6);
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            filter: blur(40px);
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(50px, 100px) rotate(180deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro {
+                font-size: 1rem;
+            }
+
+            .env-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="floating-shapes" id="shapes-container"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <nav>
+                <div class="logo">
+                    <img src="../assets/zeroseklogo.png" alt="Zeroseksolutions Logo" id="logo-img">
+                    <span class="logo-text">Solutions</span>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li class="li-link"><a href="../index.html">Home</a></li>
+                    <li class="li-link"><a href="../about/index.html">About Us</a></li>
+                    <li class="li-link"><a href="../index.html#services">Services</a></li>
+                    <li class="li-link"><a href="../index.html#products">Products</a></li>
+                    <li class="li-link"><a href="../index.html#blog">Blog</a></li>
+                    <li class="li-link"><a href="../index.html#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero-heading">
+            <h1>Our VAPT Services</h1>
+        </div>
+
+        <section>
+            <p class="intro">
+                At Zerosek Solutions, we provide comprehensive Vulnerability Assessment and Penetration Testing (VAPT)
+                services that help you identify, validate, and remediate security weaknesses before malicious actors can
+                exploit them. Our VAPT methodology adheres to industry standards including OWASP, NIST, MITRE ATT&CK,
+                and CERT-In guidelines.
+            </p>
+
+            <p>We assess across all critical components of your infrastructure and digital ecosystem. Explore our VAPT
+                subcategories below:</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Web Application VAPT</h3>
+                    <p>
+                        Our Web Application VAPT focuses on identifying vulnerabilities in web-based platforms and
+                        applications that are accessible via browsers. We simulate real-world attack scenarios to
+                        uncover security flaws that could lead to unauthorized access, data leakage, or full application
+                        compromise.
+                    </p>
+                    <h4>Key Areas of Testing:</h4>
+                    <ul class="testing-list">
+                        <li>OWASP Top 10 vulnerabilities (e.g., XSS, SQLi, CSRF)</li>
+                        <li>Authentication & session management flaws</li>
+                        <li>Business logic vulnerabilities</li>
+                        <li>Input validation & access control weaknesses</li>
+                        <li>File upload and path traversal risks</li>
+                    </ul>
+                    <h4>Applicable Environments:</h4>
+                    <ul class="env-list">
+                        <li>UAT (User Acceptance Testing)</li>
+                        <li>Staging</li>
+                        <li>Production (with strict non-disruptive methodology)</li>
+                        <li>Internal development instances (optional)</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>API VAPT</h3>
+                    <p>
+                        APIs are often the backbone of web and mobile applications. Our API VAPT assessments are
+                        designed to uncover both functional and security-level flaws in RESTful, GraphQL, and SOAP APIs.
+                    </p>
+                    <h4>Key Areas of Testing:</h4>
+                    <ul class="testing-list">
+                        <li>Broken authentication or token leakage</li>
+                        <li>Rate limiting & brute-force resistance</li>
+                        <li>IDOR (Insecure Direct Object References)</li>
+                        <li>Insecure data exposure & serialization flaws</li>
+                        <li>Improper access controls between endpoints</li>
+                    </ul>
+                    <h4>Applicable Environments:</h4>
+                    <ul class="env-list">
+                        <li>UAT and staging APIs (preferred for active testing)</li>
+                        <li>Production APIs (using read-only and passive testing techniques)</li>
+                        <li>Internal/private APIs behind VPN or IP whitelisting</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Network VAPT</h3>
+                    <p>
+                        Our Network VAPT covers both external (internet-facing) and internal (within LAN/WAN)
+                        infrastructure to identify security gaps that could be exploited by attackers to gain
+                        unauthorized access, escalate privileges, or exfiltrate data.
+                    </p>
+                    <h4>Key Areas of Testing:</h4>
+                    <ul class="testing-list">
+                        <li>Open ports and misconfigured services</li>
+                        <li>Firewall and ACL bypass techniques</li>
+                        <li>OS and software vulnerabilities</li>
+                        <li>SMB, RDP, FTP, SSH, DNS, SNMP exposures</li>
+                        <li>Man-in-the-middle and rogue service attacks</li>
+                    </ul>
+                    <h4>Environment Coverage:</h4>
+                    <ul class="env-list">
+                        <li>Corporate networks (wired and wireless)</li>
+                        <li>Data centers</li>
+                        <li>Cloud infrastructure (AWS, Azure, GCP)</li>
+                        <li>Remote access & VPN systems</li>
+                        <li>DMZ and internal LAN</li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </section>
+
+        <section>
+            <div class="service-card">
+                <h3>Environment-Based Testing Approach</h3>
+                <p>
+                    Security issues can vary significantly across different stages of the development lifecycle. We
+                    tailor
+                    our approach based on the environment to ensure maximum coverage with minimal disruption:
+                </p>
+
+                <table class="env-table">
+                    <thead>
+                        <tr>
+                            <th>Environment</th>
+                            <th>Purpose</th>
+                            <th>Testing Style</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Development</td>
+                            <td>Early-stage application</td>
+                            <td>Static & functional review</td>
+                        </tr>
+                        <tr>
+                            <td>Staging</td>
+                            <td>Pre-production clone</td>
+                            <td>Active testing, safe exploits</td>
+                        </tr>
+                        <tr>
+                            <td>UAT</td>
+                            <td>Final validation before launch</td>
+                            <td>Simulated attacks, bug validation</td>
+                        </tr>
+                        <tr>
+                            <td>Production</td>
+                            <td>Live user-facing environment</td>
+                            <td>Read-only & non-disruptive testing</td>
+                        </tr>
+                        <tr>
+                            <td>Disaster Recovery / Backup Envs</td>
+                            <td>Failover system validation</td>
+                            <td>Security parity assurance</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Each environment is tested in a context-aware manner, ensuring compliance, safety, and alignment with
+                    your operational policies.</p>
+            </div>
+        </section>
+
+        <section class="why-us">
+            <h2>Why Choose Us?</h2>
+            <div class="why-us-grid">
+                <div class="why-us-item">
+                    <div class="why-us-icon">🧠</div>
+                    <div>
+                        <h4>Certified Experts</h4>
+                        <p>Our team includes OSCP, CEH, and CREST-certified professionals with years of hands-on
+                            experience.</p>
+                    </div>
+                </div>
+
+                <div class="why-us-item">
+                    <div class="why-us-icon">🔐</div>
+                    <div>
+                        <h4>Compliance-Driven</h4>
+                        <p>We help align your systems with ISO 27001, PCI-DSS, HIPAA, GDPR, and CERT-In regulations.</p>
+                    </div>
+                </div>
+
+                <div class="why-us-item">
+                    <div class="why-us-icon">⚙️</div>
+                    <div>
+                        <h4>Custom Testing Methodology</h4>
+                        <p>Every project is tailored based on risk profile, asset sensitivity, and operational
+                            constraints.</p>
+                    </div>
+                </div>
+
+                <div class="why-us-item">
+                    <div class="why-us-icon">📋</div>
+                    <div>
+                        <h4>Detailed Reporting & Remediation Support</h4>
+                        <p>Clear, actionable findings with proof-of-concept (PoC), severity scoring (CVSS), and
+                            prioritized fixes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="deliverables">
+            <h2>Deliverables</h2>
+            <ul class="deliverables-list">
+                <li>Executive Summary for management</li>
+                <li>Technical Report with detailed vulnerabilities and PoCs</li>
+                <li>Risk Ratings and CVSS scores</li>
+                <li>Remediation guidelines with reference links</li>
+                <li>Optional retesting after fixes</li>
+            </ul>
+        </section>
+
+        <section class="cta">
+            <h2>Secure Your Digital Assets — Across All Layers</h2>
+            <p>Whether you're launching a new web platform, scaling your API backend, or securing your corporate
+                network, our VAPT services are designed to meet your security needs — without impacting business
+                continuity.</p>
+            <button class="cta-button">Schedule a free consultation</button>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="../assets/zeroseklogo.png" alt="Ashtrasolutions Logo" loading="lazy">
+                    </div>
+                    <p>Providing cutting-edge security solutions and web development services to help businesses thrive
+                        in the digital landscape.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61578268196863" target="_blank"
+                            class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/zeroseksolution" target="_blank" class="social-link"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/zerosek-solutions-llp-55b2aa374/" target="_blank"
+                            class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/zeroseksolutions/" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#products">Products</a></li>
+                        <li><a href="../about/index.html">About Us</a></li>
+                        <li><a href="../index.html#blog">Blog</a></li>
+                        <!-- <li><a href="#book-meeting">Book a Meeting</a></li> -->
+                        <li><a href="../index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <a class="footer-contactus-links"
+                            href="https://www.google.com/maps/place/%E0%A4%B0%E0%A5%81%E0%A4%A6%E0%A5%8D%E0%A4%B0+%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%88%E0%A4%9F/@25.369287,83.023739,348m/data=!3m1!1e3!4m6!3m5!1s0x398e2eefbc0c0719:0x6e1eda5f5d2db608!8m2!3d25.3692869!4d83.023739!16s%2Fg%2F11d_ymjwr6?hl=hi&entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D">Sarnath,
+                            Varanasi, Uttar Pradesh India 221007</a></p>
+                    <p><i class="fas fa-phone-alt"></i>
+                        <a class="footer-contactus-links" href="tel:+916387705669">+916387705669</a>
+                        <a class="footer-contactus-links" href="tel:+919838587277">+919838587277</a>
+                    </p>
+                    <p><i class="fas fa-envelope"></i> <a class="footer-contactus-links"
+                            href="mailto:contact@zerosek.com">contact@zerosek.com</a></p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 10:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ZeroSek Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create floating shapes
+        document.addEventListener('DOMContentLoaded', function () {
+            const shapesContainer = document.getElementById('shapes-container');
+            const colors = ['#4a6bff', '#00e0c7', '#ff6b6b'];
+
+            for (let i = 0; i < 10; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('shape');
+
+                // Random size between 100 and 300px
+                const size = Math.random() * 200 + 100;
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+
+                // Random position
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.top = `${Math.random() * 100}%`;
+
+                // Random animation duration and delay
+                shape.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                shape.style.animationDelay = `${Math.random() * 5}s`;
+
+                // Random color
+                shape.style.background = `linear-gradient(45deg, ${colors[Math.floor(Math.random() * colors.length)]}, ${colors[Math.floor(Math.random() * colors.length)]})`;
+
+                shapesContainer.appendChild(shape);
+            }
+
+            // Add hover effect to service cards
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.background = 'rgba(255, 255, 255, 0.1)';
+                    card.style.borderColor = 'rgba(74, 107, 255, 0.5)';
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.background = 'rgba(255, 255, 255, 0.05)';
+                    card.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -7,7 +7,7 @@
     <title>VAPT Services | Zerosek Solutions</title>
     <!-- SEO Meta Tags -->
     <meta name="title" content="Comprehensive VAPT Services | Zerosek Solutions">
-    <meta name="description" content="zerosek is professional VAPT services including Web App, API, and Network testing aligned with OWASP, NIST, MITRE, and CERT-In standards. Secure your digital assets with Zerosek Solutions.">
+    <meta name="description" content="Discover professional VAPT services including Web App, API, and Network testing aligned with OWASP, NIST, MITRE, and CERT-In standards. Secure your digital assets with Zerosek Solutions.">
     <meta name="keywords" content="VAPT, Vulnerability Assessment, Penetration Testing, Web Application Security, API Security, Network Security, OWASP, CERT-In, MITRE, NIST, Zerosek Solutions, Top VAPT service provider">
     <meta name="author" content="Zerosek Solutions">
 
@@ -399,10 +399,6 @@
             filter: blur(40px);
             animation: float 15s infinite linear;
         }
-        .get-in-touch{
-            text-decoration: none;
-            color: white;
-        }
 
         @keyframes float {
             0% {
@@ -418,14 +414,14 @@
             }
         }
 
-        footer {
+        /* footer {
             text-align: center;
             margin-top: 4rem;
             padding: 2rem 0;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
             opacity: 0.7;
-        }
+        } */
 
         @media (max-width: 768px) {
             h1 {
@@ -464,8 +460,9 @@
                     <li class="li-link"><a href="../about/index.html">About Us</a></li>
                     <li class="li-link"><a href="../index.html#services">Services</a></li>
                     <li class="li-link"><a href="../index.html#products">Products</a></li>
-                    <li class="li-link"><a href="../index.html#blog">Blog</a></li>
+                    <li class="li-link"><a href="../blog/blogs.html">Blog</a></li>
                     <li class="li-link"><a href="../index.html#contact">Contact</a></li>
+                     <li class="li-link"><a href="../career/career.html">Career</a>
                 </ul>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
@@ -674,7 +671,7 @@
             <p>Whether you're launching a new web platform, scaling your API backend, or securing your corporate
                 network, our VAPT services are designed to meet your security needs — without impacting business
                 continuity.</p>
-            <button class="cta-button"><a href="mailto:contact@zerosek.com" class="get-in-touch">Schedule a free consultation</a></button>
+            <button class="cta-button">Schedule a free consultation</button>
         </section>
     </div>
 
@@ -705,7 +702,7 @@
                         <li><a href="../index.html#services">Services</a></li>
                         <li><a href="../index.html#products">Products</a></li>
                         <li><a href="../about/index.html">About Us</a></li>
-                        <li><a href="../index.html#blog">Blog</a></li>
+                        <li><a href="../blog/blogs.html">Blog</a></li>
                         <!-- <li><a href="#book-meeting">Book a Meeting</a></li> -->
                         <li><a href="../index.html#contact">Contact Us</a></li>
                     </ul>
@@ -783,23 +780,6 @@
                 });
             });
         });
-
-
-        // Mobile Menu Toggle
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const navLinks = document.getElementById('navLinks');
-
-mobileMenuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    const icon = mobileMenuBtn.querySelector('i');
-    if (navLinks.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-});
     </script>
 </body>
 

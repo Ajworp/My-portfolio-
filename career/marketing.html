@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Security Researcher | Careers | Zerosek</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="careernav.css">
+    <style>
+        :root {
+            --primary: #6e45e2;
+            --secondary: #88d3ce;
+            --dark: #1a1a2e;
+            --darker: #16213e;
+            --light: #f1f1f1;
+            --accent: #ff7e5f;
+            --nav-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        /* nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: rgba(26, 26, 46, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        } */
+
+        /* Main Content */
+        main {
+            padding-top: var(--nav-height);
+            min-height: calc(100vh - var(--nav-height) - 150px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .job-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .job-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(110, 69, 226, 0.1) 0%, rgba(22, 33, 62, 0) 70%);
+            animation: pulse 15s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(25%, 25%);
+            }
+
+            100% {
+                transform: translate(-25%, -25%);
+            }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        .job-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .job-meta-item i {
+            color: var(--accent);
+        }
+
+        .job-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .job-tag {
+            background: rgba(136, 211, 206, 0.2);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(110, 69, 226, 0.4);
+            border: none;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(110, 69, 226, 0.6);
+        }
+
+        /* Job Content */
+        .job-content {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), transparent);
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem;
+            color: var(--light);
+        }
+
+        p {
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        ul,
+        ol {
+            margin: 1rem 0 1rem 2rem;
+            opacity: 0.9;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .requirements-list li::before {
+            content: '🔍';
+            margin-right: 0.5rem;
+            color: var(--accent);
+        }
+
+        .responsibilities-list li::before {
+            content: '✅';
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .benefits-list li::before {
+            content: '✨';
+            margin-right: 0.5rem;
+            color: var(--accent);
+        }
+
+        /* Application Form */
+        .application-form {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: var(--light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .options{
+            background: rgb(88,88,88);
+            color: var(--light);
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .file-upload {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .file-upload-label {
+            background: rgba(110, 69, 226, 0.3);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-label:hover {
+            background: rgba(110, 69, 226, 0.5);
+        }
+
+        .file-name {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Floating Shapes */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            filter: blur(40px);
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(50px, 100px) rotate(180deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        /* Footer */
+        /* footer {
+            background: var(--darker);
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        } */
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - var(--nav-height));
+                background: var(--darker);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .job-content,
+            .application-form {
+                padding: 1.5rem;
+            }
+
+            .job-meta {
+                gap: 1rem;
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="floating-shapes" id="shapes-container"></div>
+
+    <!-- Navigation -->
+    <!-- <nav>
+        <a href="#" class="logo">
+            <i class="fas fa-shield-alt logo-icon"></i>
+            <span>Zerosek</span>
+        </a>
+        
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Research</a>
+            <a href="#">Careers</a>
+            <a href="#">Contact</a>
+        </div>
+        
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav> -->
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <nav>
+                <div class="logo">
+                    <img src="../assets/zeroseklogo.png" alt="Zeroseksolutions Logo" id="logo-img">
+                    <span class="logo-text">Solutions</span>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li class="li-link"><a href="../index.html">Home</a></li>
+                    <li class="li-link"><a href="../about/index.html">About Us</a></li>
+                    <li class="li-link"><a href="../index.html#services">Services</a></li>
+                    <li class="li-link"><a href="../index.html#products">Products</a></li>
+                    <li class="li-link"><a href="../blog/blogs.html">Blog</a></li>
+                    <li class="li-link"><a href="../index.html#contact">Contact</a></li>
+                    <li class="li-link"><a href="../career/career.html">Career</a>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+    <div class="container">
+        <!-- Job Header -->
+        <section class="job-header">
+            <h1>Sales & Marketing Specialist</h1>
+            <div class="job-meta">
+                <div class="job-meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Remote</span>
+                </div>
+                <div class="job-meta-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Commission-Based</span>
+                </div>
+                <div class="job-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Posted 2 days ago</span>
+                </div>
+                <div class="job-meta-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>High Commission per Client</span>
+                </div>
+            </div>
+            <div class="job-tags">
+                <span class="job-tag">Sales</span>
+                <span class="job-tag">Marketing</span>
+                <span class="job-tag">Cybersecurity</span>
+                <span class="job-tag">Remote</span>
+            </div>
+            <a href="#apply" class="cta-button">Apply Now</a>
+        </section>
+
+        <!-- Job Description -->
+        <section class="job-content">
+            <h2>About ZeroSEK Solutions</h2>
+            <p>
+                ZeroSEK Solutions is a cybersecurity-focused technology firm offering secure Web development and professional VAPT and Red Teaming services. We help businesses build, protect, and scale their digital infrastructure.
+            </p>
+
+            <h2>Role Overview</h2>
+            <p>
+                We are looking for dynamic and self-motivated Sales and Marketing Specialists to join our team on a commission-only basis. Your role will be to promote our services, bring in qualified leads, and convert prospects into clients. If you're passionate about tech, enjoy networking, and want to earn based on performance, this role is for you.
+            </p>
+
+            <h2>Key Responsibilities</h2>
+            <ul class="responsibilities-list">
+                <li>Identify and reach out to potential clients through email, LinkedIn, calls, or other channels</li>
+                <li>Promote and pitch ZeroSEK’s services (Web Development, VAPT, Red Teaming)</li>
+                <li>Schedule meetings and demos between leads and our technical team</li>
+                <li>Maintain a pipeline of prospects and update progress regularly</li>
+                <li>Help in executing marketing strategies to improve brand visibility</li>
+            </ul>
+
+            <h2>Requirements</h2>
+            <ul class="requirements-list">
+                <li>Strong communication and persuasion skills</li>
+                <li>Basic understanding of cybersecurity or IT services (preferred)</li>
+                <li>Previous experience in B2B sales or freelance sales roles (preferred & required)</li>
+                <li>Self-driven and goal-oriented attitude</li>
+                <li>Ability to work remotely and manage your own time</li>
+            </ul>
+
+            <h2>Compensation</h2>
+            <ul class="benefits-list">
+                <li>💰 100% commission-based (high commission on each successful client deal)</li>
+                <li>📈 Performance-based incentives for top performers</li>
+                <li>🎯 No cap on earnings – the more you sell, the more you earn</li>
+            </ul>
+
+            <h2>Perks</h2>
+            <ul class="benefits-list">
+                <li>Work remotely from anywhere</li>
+                <li>Flexible hours – outcome-focused</li>
+                <li>Opportunity to grow into a full-time or managerial role</li>
+                <li>Access to a supportive team and technical backing</li>
+            </ul>
+
+            <p>
+                Interested candidates can share their resume at: <strong>support@zerosek.com</strong>
+            </p>
+            <p>
+                #Jobs #Marketing #Sales #Website #Varanasi #India #Services
+            </p>
+        </section>
+
+        <!-- Application Form -->
+        <section id="apply" class="application-form">
+            <h2>Apply for This Position</h2>
+            <form id="job-application">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn Profile</label>
+                    <input type="url" id="linkedin" name="linkedin">
+                </div>
+
+                <div class="form-group">
+                    <label for="github">Portfolio / Website (Optional)</label>
+                    <input type="url" id="github" name="github">
+                </div>
+
+                <div class="form-group">
+                    <label for="resume">Resume/CV</label>
+                    <div class="file-upload">
+                        <label for="resume" class="file-upload-label">
+                            <i class="fas fa-upload"></i> Choose File
+                        </label>
+                        <span class="file-name">No file chosen</span>
+                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" style="display: none;" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cover-letter">Cover Letter (Optional)</label>
+                    <textarea id="cover-letter" name="cover-letter"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="how-heard">How did you hear about this position?</label>
+                    <select id="how-heard" name="how-heard">
+                        <option class="options" value="">Select an option</option>
+                        <option class="options" value="LinkedIn">LinkedIn</option>
+                        <option class="options" value="Job Board">Job Board</option>
+                        <option class="options" value="Referral">Referral</option>
+                        <option class="options" value="Conference">Conference</option>
+                        <option class="options" value="Other">Other</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="cta-button">Submit Application</button>
+            </form>
+        </section>
+    </div>
+</main>
+
+    <!-- Footer -->
+    <!-- <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Zerosek</h3>
+                <p>Cutting-edge cybersecurity solutions and research to protect your digital assets.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Penetration Testing</a></li>
+                    <li><a href="#">Security Audits</a></li>
+                    <li><a href="#">Incident Response</a></li>
+                    <li><a href="#">Security Training</a></li>
+                    <li><a href="#">Vulnerability Research</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:careers@zerosek.com">careers@zerosek.com</a></li>
+                    <li><a href="tel:+11234567890">+1 (123) 456-7890</a></li>
+                    <li>123 Security Ave, Cyber City</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 Zerosek Security. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer> -->
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="../assets/zeroseklogo.png" alt="Ashtrasolutions Logo" loading="lazy">
+                    </div>
+                    <p>Providing cutting-edge security solutions and web development services to help businesses thrive
+                        in the digital landscape.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61578268196863" target="_blank"
+                            class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/zeroseksolution" target="_blank" class="social-link"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/zerosek-solutions-llp-55b2aa374/" target="_blank"
+                            class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/zeroseksolutions/" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#products">Products</a></li>
+                        <li><a href="../about/index.html">About Us</a></li>
+                        <li><a href="../blog/blogs.html">Blog</a></li>
+                        <!-- <li><a href="#book-meeting">Book a Meeting</a></li> -->
+                        <li><a href="../index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <a class="footer-contactus-links"
+                            href="https://www.google.com/maps/place/%E0%A4%B0%E0%A5%81%E0%A4%A6%E0%A5%8D%E0%A4%B0+%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%88%E0%A4%9F/@25.369287,83.023739,348m/data=!3m1!1e3!4m6!3m5!1s0x398e2eefbc0c0719:0x6e1eda5f5d2db608!8m2!3d25.3692869!4d83.023739!16s%2Fg%2F11d_ymjwr6?hl=hi&entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D">Sarnath,
+                            Varanasi, Uttar Pradesh India 221007</a></p>
+                    <p><i class="fas fa-phone-alt"></i>
+                        <a class="footer-contactus-links" href="tel:+916387705669">+916387705669</a>
+                        <a class="footer-contactus-links" href="tel:+919838587277">+919838587277</a>
+                    </p>
+                    <p><i class="fas fa-envelope"></i> <a class="footer-contactus-links"
+                            href="mailto:contact@zerosek.com">contact@zerosek.com</a></p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 10:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ZeroSek Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Create floating shapes
+        document.addEventListener('DOMContentLoaded', function () {
+            const shapesContainer = document.getElementById('shapes-container');
+            const colors = ['#6e45e2', '#88d3ce', '#ff7e5f'];
+
+            for (let i = 0; i < 10; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('shape');
+
+                // Random size between 100 and 300px
+                const size = Math.random() * 200 + 100;
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+
+                // Random position
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.top = `${Math.random() * 100}%`;
+
+                // Random animation duration and delay
+                shape.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                shape.style.animationDelay = `${Math.random() * 5}s`;
+
+                // Random color
+                shape.style.background = `linear-gradient(45deg, ${colors[Math.floor(Math.random() * colors.length)]}, ${colors[Math.floor(Math.random() * colors.length)]})`;
+
+                shapesContainer.appendChild(shape);
+            }
+
+            // Mobile menu toggle
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuBtn.innerHTML = navLinks.classList.contains('active')
+                    ? '<i class="fas fa-times"></i>'
+                    : '<i class="fas fa-bars"></i>';
+            });
+
+            // File upload display
+            const fileInput = document.getElementById('resume');
+            const fileNameDisplay = document.querySelector('.file-name');
+
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    fileNameDisplay.textContent = e.target.files[0].name;
+                } else {
+                    fileNameDisplay.textContent = 'No file chosen';
+                }
+            });
+
+            // Form submission
+            const form = document.getElementById('job-application');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // In a real implementation, you would send the form data to your server
+                alert('Application submitted successfully! We will review your application and get back to you soon.');
+                form.reset();
+                fileNameDisplay.textContent = 'No file chosen';
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    if (this.getAttribute('href') === '#') return;
+
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - document.querySelector('nav').offsetHeight,
+                            behavior: 'smooth'
+                        });
+
+                        // Close mobile menu if open
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

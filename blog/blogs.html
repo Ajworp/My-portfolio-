@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Research Blog | Zerosek</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./blogcommon.css">
+    <link rel="icon" href="../assets/zeroseklogo.png" type="image/png">
+    <meta name="description" content="Explore the latest security research, vulnerabilities, and exploits from Zerosek Solutions. Stay updated with our expert analysis and insights into the world of cybersecurity.">
+    <meta name="keywords" content="security research, vulnerabilities, exploits, cybersecurity, Zerosek Solutions, blog, CVE, Palo Alto, Log4j, API security, vulnerability scanner">
+    <meta name="author" content="Zerosek Solutions">
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4a6bff;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --accent: #00e0c7;
+            --warning: #f59e0b;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, rgba(2, 6, 23, 0) 70%);
+            animation: pulse 15s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(25%, 25%);
+            }
+            100% {
+                transform: translate(-25%, -25%);
+            }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .blog-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .filter-btn.active {
+            font-weight: bold;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .blog-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.5s forwards;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-card:nth-child(1) { animation-delay: 0.1s; }
+        .blog-card:nth-child(2) { animation-delay: 0.2s; }
+        .blog-card:nth-child(3) { animation-delay: 0.3s; }
+        .blog-card:nth-child(4) { animation-delay: 0.4s; }
+        .blog-card:nth-child(5) { animation-delay: 0.5s; }
+        .blog-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(74, 107, 255, 0.3);
+        }
+
+        .card-image {
+            height: 180px;
+            background: linear-gradient(45deg, var(--darker), var(--dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(74, 107, 255, 0.1) 0%, rgba(2, 6, 23, 0) 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .card-image i {
+            font-size: 3rem;
+            z-index: 1;
+            color: rgba(255, 255, 255, 0.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .card-date {
+            color: var(--accent);
+        }
+
+        .card-category {
+            background: rgba(255, 107, 107, 0.2);
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--light);
+            transition: color 0.3s ease;
+        }
+
+        .blog-card:hover .card-title {
+            color: var(--accent);
+        }
+
+        .card-excerpt {
+            opacity: 0.8;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .read-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 0.8rem;
+        }
+
+        .severity {
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+        }
+
+        .severity.high {
+            background: rgba(255, 107, 107, 0.2);
+            color: var(--primary);
+        }
+
+        .severity.medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+
+        .severity.low {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn:hover, .page-btn.active {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            filter: blur(40px);
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate(50px, 100px) rotate(180deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        /* footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        } */
+        .container{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes" id="shapes-container"></div>
+    
+     <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <nav>
+                <div class="logo">
+                    <img src="../assets/zeroseklogo.png" alt="Zeroseksolutions Logo" id="logo-img">
+                    <span class="logo-text">Solutions</span>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li class="li-link"><a href="../index.html">Home</a></li>
+                    <li class="li-link"><a href="../about/index.html">About Us</a></li>
+                    <li class="li-link"><a href="../index.html#services">Services</a></li>
+                    <li class="li-link"><a href="../index.html#products">Products</a></li>
+                    <li class="li-link"><a href="./blogs.html">Blog</a></li>
+                    <li class="li-link"><a href="../index.html#contact">Contact</a></li>
+                     <li class="li-link"><a href="../career/career.html">Career</a>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header> 
+
+    <div class="blog-container">
+        <div class="header">
+            <h1>Blogs</h1>
+            <p class="subtitle">Latest Web Development and Security or Cybersecurity Blogs</p>
+        </div>
+        
+        <!-- <div class="blog-filter">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Vulnerabilities</button>
+            <button class="filter-btn">Exploits</button>
+            <button class="filter-btn">Guides</button>
+            <button class="filter-btn">Tools</button>
+        </div> -->
+        
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="card-image">
+                    <i class="fas fa-bug"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-date">Jan 15, 2025</span>
+                        <span class="card-category">Vulnerability</span>
+                    </div>
+                    <a href="cve2025.html"><h3 class="card-title">CVE-2025-0133 – Palo Alto PAN-OS Reflected XSS</h3></a>
+                    <p class="card-excerpt">A reflected cross-site scripting (XSS) vulnerability in the GlobalProtect gateway and portal features of Palo Alto Networks PAN-OS software enables execution of malicious JavaScript...</p>
+                    <div class="card-footer">
+                        <a href="cve2025.html" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <span class="severity high">High</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <div class="blog-card">
+                <div class="card-image">
+                    <i class="fas fa-server"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-date">Dec 28, 2024</span>
+                        <span class="card-category">Exploit</span>
+                    </div>
+                    <h3 class="card-title">Apache Log4j 2.0-2.14.1 RCE Deep Dive</h3>
+                    <p class="card-excerpt">Technical analysis of the Log4Shell vulnerability (CVE-2021-44228) with new exploitation vectors and defensive techniques for legacy systems that can't be immediately patched...</p>
+                    <div class="card-footer">
+                        <a href="#" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <span class="severity high">Critical</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="card-image">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-date">Dec 15, 2024</span>
+                        <span class="card-category">Guide</span>
+                    </div>
+                    <h3 class="card-title">Secure API Development Best Practices</h3>
+                    <p class="card-excerpt">Comprehensive guide to building secure APIs from the ground up, covering authentication, rate limiting, input validation, and common vulnerabilities to avoid...</p>
+                    <div class="card-footer">
+                        <a href="#" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <span class="severity medium">Guide</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="card-image">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-date">Nov 30, 2024</span>
+                        <span class="card-category">Tool</span>
+                    </div>
+                    <h3 class="card-title">Introducing VulnScan: Automated Vulnerability Scanner</h3>
+                    <p class="card-excerpt">Our open-source tool for identifying common vulnerabilities in web applications, with support for OWASP Top 10 detection and customizable scanning profiles...</p>
+                    <div class="card-footer">
+                        <a href="#" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <span class="severity low">Tool</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="card-image">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-date">Nov 22, 2024</span>
+                        <span class="card-category">Vulnerability</span>
+                    </div>
+                    <h3 class="card-title">CVE-2024-3994: WordPress Core SQL Injection</h3>
+                    <p class="card-excerpt">Analysis of a recently patched SQL injection vulnerability in WordPress core that could allow authenticated attackers to extract sensitive database information...</p>
+                    <div class="card-footer">
+                        <a href="#" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <span class="severity medium">Medium</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="card-image">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-date">Nov 10, 2024</span>
+                        <span class="card-category">Research</span>
+                    </div>
+                    <h3 class="card-title">AWS IAM Misconfigurations: Common Pitfalls</h3>
+                    <p class="card-excerpt">Research findings from analyzing hundreds of AWS environments showing the most common and dangerous IAM misconfigurations that lead to cloud breaches...</p>
+                    <div class="card-footer">
+                        <a href="#" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <span class="severity high">Research</span>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        
+        <!-- <div class="pagination">
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div> -->
+    </div>
+
+        <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="../assets/zeroseklogo.png" alt="Ashtrasolutions Logo" loading="lazy">
+                    </div>
+                    <p>Providing cutting-edge security solutions and web development services to help businesses thrive
+                        in the digital landscape.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61578268196863" target="_blank"
+                            class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/zeroseksolution" target="_blank" class="social-link"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/zerosek-solutions-llp-55b2aa374/" target="_blank"
+                            class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/zeroseksolutions/" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#products">Products</a></li>
+                        <li><a href="../about/index.html">About Us</a></li>
+                        <li><a href="../index.html#blog">Blog</a></li>
+                        <!-- <li><a href="#book-meeting">Book a Meeting</a></li> -->
+                        <li><a href="../index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <a class="footer-contactus-links"
+                            href="https://www.google.com/maps/place/%E0%A4%B0%E0%A5%81%E0%A4%A6%E0%A5%8D%E0%A4%B0+%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%88%E0%A4%9F/@25.369287,83.023739,348m/data=!3m1!1e3!4m6!3m5!1s0x398e2eefbc0c0719:0x6e1eda5f5d2db608!8m2!3d25.3692869!4d83.023739!16s%2Fg%2F11d_ymjwr6?hl=hi&entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D">Sarnath,
+                            Varanasi, Uttar Pradesh India 221007</a></p>
+                    <p><i class="fas fa-phone-alt"></i>
+                        <a class="footer-contactus-links" href="tel:+916387705669">+916387705669</a>
+                        <a class="footer-contactus-links" href="tel:+919838587277">+919838587277</a>
+                    </p>
+                    <p><i class="fas fa-envelope"></i> <a class="footer-contactus-links"
+                            href="mailto:contact@zerosek.com">contact@zerosek.com</a></p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 10:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ZeroSek Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- <footer>
+        <p>&copy; 2025 Zerosek Security Research. All rights reserved.</p>
+    </footer> -->
+
+    <script>
+        // Create floating shapes
+        document.addEventListener('DOMContentLoaded', function() {
+            const shapesContainer = document.getElementById('shapes-container');
+            const colors = ['#ff6b6b', '#4a6bff', '#00e0c7'];
+            
+            for (let i = 0; i < 10; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('shape');
+                
+                // Random size between 100 and 300px
+                const size = Math.random() * 200 + 100;
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                
+                // Random position
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration and delay
+                shape.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                shape.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // Random color
+                shape.style.background = `linear-gradient(45deg, ${colors[Math.floor(Math.random() * colors.length)]}, ${colors[Math.floor(Math.random() * colors.length)]})`;
+                
+                shapesContainer.appendChild(shape);
+            }
+            
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    // In a real implementation, you would filter the blog posts here
+                });
+            });
+            
+            // Pagination functionality
+            const pageBtns = document.querySelectorAll('.page-btn');
+            pageBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    pageBtns.forEach(b => b.classList.remove('active'));
+                    if (!btn.querySelector('i')) {
+                        btn.classList.add('active');
+                    }
+                    // In a real implementation, you would load the selected page here
+                });
+            });
+        });
+    </script>
+</body>
+</html>

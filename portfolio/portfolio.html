@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ZeroSEK Solutions Portfolio - Explore our cutting-edge web development, cybersecurity, and ERP projects."
+    />
+    <meta
+      name="keywords"
+      content="ZeroSEK Solutions, Portfolio, Web Development, VAPT, Cybersecurity, MERN Stack, ERP Systems"
+    />
+    <meta name="author" content="ZeroSEK Solutions" />
+    <title>Portfolio | ZeroSEK Solutions</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="../assets/herolog.png" />
+    <style>
+      /* Google Fonts */
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #141e30, #243b55);
+        color: #fff;
+        line-height: 1.6;
+        scroll-behavior: smooth;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      /* Header */
+      header {
+        backdrop-filter: blur(8px);
+        background-color: rgba(15, 12, 41, 0.8);
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        padding: 1rem 0;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        margin: 10px;
+        border-radius: 20px;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        text-align: center;
+      }
+
+      .logo img {
+        height: 50px;
+        filter: drop-shadow(0 0 #00ffe0);
+      }
+
+      .logo-text {
+        position: relative;
+        left: -72px;
+        top: -10px;
+        color: #f0feff;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #00ffe0;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.5rem;
+      }
+
+      /* Portfolio Section */
+      .portfolio-section {
+        padding: 25px 20px;
+      }
+
+      .portfolio-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .portfolio-header h1 {
+        font-size: 2.8rem;
+        margin-bottom: 15px;
+        background: linear-gradient(45deg, #00ffe0, #00a2ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+      }
+
+      .portfolio-header p {
+        font-size: 1.2rem;
+        color: #e7e7e7;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Filter Buttons */
+      .filter-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 40px;
+      }
+
+      .filter-btn {
+        padding: 12px 24px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        backdrop-filter: blur(10px);
+      }
+
+      .filter-btn:hover {
+        background: rgba(0, 255, 224, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .filter-btn.active {
+        background: linear-gradient(45deg, #00ffe0, #00a2ff);
+        color: #141e30;
+        box-shadow: 0 5px 15px rgba(0, 255, 224, 0.3);
+      }
+
+      /* Portfolio Grid */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+      }
+
+      .portfolio-item {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .portfolio-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 255, 224, 0.2);
+        border-color: rgba(0, 255, 224, 0.3);
+      }
+
+      .portfolio-img {
+        width: 100%;
+        height: 182px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .portfolio-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .portfolio-item:hover .portfolio-img img {
+        transform: scale(1.1);
+      }
+
+      .portfolio-content {
+        padding: 25px;
+      }
+
+      .portfolio-content h3 {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+        color: #00ffe0;
+      }
+
+      .portfolio-content p {
+        color: #e7e7e7;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .portfolio-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .tech-tag {
+        background: rgba(0, 255, 224, 0.1);
+        color: #00ffe0;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .portfolio-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .portfolio-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 10px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        font-size: 12px;
+      }
+
+      .portfolio-link:hover {
+        background: linear-gradient(45deg, #00ffe0, #00a2ff);
+        color: #141e30;
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(135deg, #1c1c1c, #0d0d0d);
+        color: white;
+        padding: 60px 0 20px;
+        margin-top: 80px;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .footer-logo img {
+        height: 40px;
+      }
+
+      .footer-about p {
+        color: #cbd5e1;
+        margin-bottom: 20px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #334155;
+        color: white;
+        transition: background-color 0.3s;
+      }
+
+      .social-link:hover {
+        background-color: #00ffe0;
+      }
+
+      .footer-links h3,
+      .footer-contact h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        color: white;
+      }
+
+      .footer-links ul {
+        list-style-type: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      .footer-contact p {
+        color: #cbd5e1;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .footer-contact i {
+        margin-top: 5px;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid #334155;
+        color: #94a3b8;
+        font-size: 14px;
+      }
+
+      .footer-contactus-links {
+        color: white;
+        text-decoration: none;
+      }
+
+      .footer-contactus-links:hover {
+        color: rgb(55, 191, 191);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .portfolio-grid {
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background: #1f1f1f;
+          position: absolute;
+          top: 70px;
+          right: 0;
+          width: 100%;
+          text-align: right;
+          padding: 1rem;
+        }
+
+        .nav-links.active {
+          display: flex;
+          backdrop-filter: blur(8px);
+          background-color: rgba(15, 12, 41, 0.8);
+          text-align: center;
+          border-radius: 10px;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .portfolio-header h1 {
+          font-size: 2.2rem;
+        }
+
+        .portfolio-header p {
+          font-size: 1rem;
+        }
+
+        .filter-buttons {
+          gap: 10px;
+        }
+
+        .filter-btn {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .portfolio-header h1 {
+          font-size: 1.8rem;
+        }
+
+        .filter-buttons {
+          gap: 8px;
+        }
+
+        .filter-btn {
+          padding: 8px 16px;
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <img
+              src="../assets/zeroseklogo.png"
+              alt="Zeroseksolutions Logo"
+              id="logo-img"
+            />
+            <span class="logo-text">Solutions</span>
+          </div>
+          <ul class="nav-links" id="navLinks">
+            <li class="li-link"><a href="../index.html">Home</a></li>
+            <li class="li-link"><a href="../about/index.html">About Us</a></li>
+            <li class="li-link">
+              <a href="../index.html#services">Services</a>
+            </li>
+            <li class="li-link">
+              <a href="../index.html#products">Products</a>
+            </li>
+            <li class="li-link"><a href="#portfolio">Portfolio</a></li>
+            <li class="li-link"><a href="../index.html#blog">Blog</a></li>
+            <li class="li-link"><a href="../index.html#contact">Contact</a></li>
+            <li class="li-link"><a href="../career/career.html">Career</a></li>
+          </ul>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
+      <div class="container">
+        <div class="portfolio-header">
+          <h1>Our Portfolio</h1>
+          <p>
+            Explore our innovative projects that showcase our expertise in web
+            development, cybersecurity, and enterprise solutions.
+          </p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">
+            All Projects
+          </button>
+          <button class="filter-btn" data-filter="web">Web Development</button>
+          <!-- <button class="filter-btn" data-filter="cyber">Cybersecurity</button> -->
+          <button class="filter-btn" data-filter="erp">ERP Systems</button>
+          <button class="filter-btn" data-filter="mern">MERN Stack</button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+          <!-- Project 1 -->
+          <!-- <div class="portfolio-item" data-category="web mern">
+            <div class="portfolio-img">
+              <img src="../assets/e_comm.png" alt="E-Commerce Platform" />
+            </div>
+            <div class="portfolio-content">
+              <h3>E-Commerce Platform</h3>
+              <p>
+                A full-featured online shopping platform with product
+                management, user authentication, payment integration, and admin
+                dashboard.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Stripe</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="#" class="portfolio-link"
+                  ><i class="fas fa-external-link-alt"></i> Live Demo</a
+                >
+                <a href="#" class="portfolio-link"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="portfolio-item" data-category="web static">
+            <div class="portfolio-img">
+              <img src="../assets/jewellery.png" alt="static website" />
+            </div>
+            <div class="portfolio-content">
+              <h3>Jewellery Website</h3>
+              <p>
+                A visually stunning jewellery website with smooth animations,
+                dark/light mode, and optimized performance for creative
+                professionals.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">SEO</span>
+                <span class="tech-tag">Responsive</span>
+                <span class="tech-tag">Animations</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="https://jewelry.gyaat.in/" target="_blank" class="portfolio-link"
+                  ><i class="fas fa-external-link-alt"></i> Live Demo</a
+                >
+                <!-- <a href="#" class="portfolio-link"
+                  ><i class="fas fa-file-pdf"></i> Report</a
+                > -->
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="web static">
+            <div class="portfolio-img">
+              <img src="../assets/restaurant.png" alt="static website" />
+            </div>
+            <div class="portfolio-content">
+              <h3>Restaurant Website</h3>
+              <p>
+                A Kaka Restaurant website with smooth animations, dark/light
+                mode, and optimized performance for creative professionals.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">SEO</span>
+                <span class="tech-tag">Responsive</span>
+                <span class="tech-tag">Animations</span>
+              </div>
+              <div class="portfolio-links">
+                 <a href="https://restaurant.gyaat.in/" target="_blank" class="portfolio-link"
+                  ><i class="fas fa-external-link-alt"></i> Live Demo</a
+                >
+                <!-- <a href="#" class="portfolio-link"
+                  ><i class="fas fa-file-pdf"></i> Report</a
+                > -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <!-- <div class="portfolio-item" data-category="cyber">
+            <div class="portfolio-img">
+              <img src="../assets/vapt_dashboard.png" alt="VAPT Dashboard" />
+            </div>
+            <div class="portfolio-content">
+              <h3>Vulnerability Assessment Dashboard</h3>
+              <p>
+                A comprehensive dashboard for vulnerability assessment and
+                penetration testing with real-time scanning and reporting
+                capabilities.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Cybersecurity</span>
+                <span class="tech-tag">OWASP</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="#" class="portfolio-link"
+                  ><i class="fas fa-external-link-alt"></i> Case Study</a
+                >
+                <a href="#" class="portfolio-link"
+                  ><i class="fas fa-file-pdf"></i> Report</a
+                >
+              </div>
+            </div>
+          </div> -->
+
+          <!-- Project 3 -->
+          <div class="portfolio-item" data-category="erp web">
+            <div class="portfolio-img">
+              <img
+                src="../assets/College ERP System.png"
+                alt="College ERP System"
+              />
+            </div>
+            <div class="portfolio-content">
+              <h3>College ERP System</h3>
+              <p>
+                A comprehensive enterprise resource planning system for
+                educational institutions with student, faculty, and
+                administrative modules.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Cloud</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="#" class="portfolio-link"
+                  ><i class="fas fa-external-link-alt"></i> Live Demo</a
+                >
+                <a href="#" class="portfolio-link"
+                  ><i class="fas fa-info-circle"></i> Details</a
+                >
+              </div>
+            </div>
+          </div>
+
+             <div class="portfolio-item" data-category="web mern">
+            <div class="portfolio-img">
+              <img
+                src="../assets/gyaatportfolio.png"
+                alt="Portfolio Website"
+              />
+            </div>
+            <div class="portfolio-content">
+              <h3>Gyaat Real Estate Website</h3>
+              <p>
+                Gyaat Real Estate website with smooth animations, dark/light mode, and optimized performance for creative professionals, this website is a real estate website which is developed using MERN stack.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Express</span>
+                <span class="tech-tag">SEO</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="https://gyaat.in/" target="_blank" class="portfolio-link"
+                  ><i class="fas fa-external-link-alt"></i> Visit Site</a
+                >
+                <!-- <a href="#" class="portfolio-link"><i class="fab fa-github"></i> GitHub</a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <!-- <div class="portfolio-item" data-category="web mern">
+            <div class="portfolio-img">
+              <img
+                src="../assets/creative_portfolio.png"
+                alt="Portfolio Website"
+              />
+            </div>
+            <div class="portfolio-content">
+              <h3>Creative Portfolio Website</h3>
+              <p>
+                A visually stunning portfolio website with smooth animations,
+                dark/light mode, and optimized performance for creative
+                professionals.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">GSAP</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">SEO</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="#" class="portfolio-link"
+                  ><i class="fas fa-external-link-alt"></i> Visit Site</a
+                >
+                <a href="#" class="portfolio-link"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- Project 5 -->
+          <!-- <div class="portfolio-item" data-category="cyber">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/600x400/141e30/00ffe0?text=API+Security" alt="API Security Testing">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>API Security Testing Framework</h3>
+                        <p>A custom framework for comprehensive API security testing, including authentication bypass, injection attacks, and data exposure tests.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">Security</span>
+                            <span class="tech-tag">Automation</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link"><i class="fas fa-file-pdf"></i> Case Study</a>
+                            <a href="#" class="portfolio-link"><i class="fas fa-tools"></i> Documentation</a>
+                        </div>
+                    </div>
+                </div> -->
+
+          <!-- Project 6 -->
+          <!-- <div class="portfolio-item" data-category="web mern">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/600x400/141e30/00ffe0?text=Task+Manager" alt="Task Management App">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Task Management Application</h3>
+                        <p>A collaborative task management application with real-time updates, team collaboration, and progress tracking features.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">MERN</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">Responsive</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#" class="portfolio-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-about">
+            <div class="footer-logo">
+              <img
+                src="../assets/zeroseklogo.png"
+                alt="Zeroseksolutions Logo"
+                loading="lazy"
+              />
+            </div>
+            <p>
+              Providing cutting-edge security solutions and web development
+              services to help businesses thrive in the digital landscape.
+            </p>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/profile.php?id=61578268196863"
+                target="_blank"
+                class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://x.com/zeroseksolution"
+                target="_blank"
+                class="social-link"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/zerosek-solutions-llp-55b2aa374/"
+                target="_blank"
+                class="social-link"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/zeroseksolutions/"
+                target="_blank"
+                class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../index.html#services">Services</a></li>
+              <li><a href="../index.html#products">Products</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="../about/index.html">About Us</a></li>
+              <li><a href="../index.html#blog">Blog</a></li>
+              <li><a href="../index.html#contact">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i>
+              <a
+                class="footer-contactus-links"
+                href="https://www.google.com/maps/place/%E0%A4%B0%E0%A5%81%E0%A4%A6%E0%A5%8D%E0%A4%B0+%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%88%E0%A4%9F/@25.369287,83.023739,348m/data=!3m1!1e3!4m6!3m5!1s0x398e2eefbc0c0719:0x6e1eda5f5d2db608!8m2!3d25.3692869!4d83.023739!16s%2Fg%2F11d_ymjwr6?hl=hi&entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D"
+                >Sarnath, Varanasi, Uttar Pradesh India 221007</a
+              >
+            </p>
+            <p>
+              <i class="fas fa-phone-alt"></i>
+              <a class="footer-contactus-links" href="tel:+916387705669"
+                >+916387705669</a
+              >
+              <a class="footer-contactus-links" href="tel:+919838587277"
+                >+919838587277</a
+              >
+            </p>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <a
+                class="footer-contactus-links"
+                href="mailto:contact@zerosek.com"
+                >contact@zerosek.com</a
+              >
+            </p>
+            <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 10:00 PM</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 ZeroSek Solutions. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Portfolio filtering
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Remove active class from all buttons
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+            // Add active class to clicked button
+            button.classList.add("active");
+
+            const filterValue = button.getAttribute("data-filter");
+
+            portfolioItems.forEach((item) => {
+              if (filterValue === "all") {
+                item.style.display = "block";
+              } else {
+                const categories = item
+                  .getAttribute("data-category")
+                  .split(" ");
+                if (categories.includes(filterValue)) {
+                  item.style.display = "block";
+                } else {
+                  item.style.display = "none";
+                }
+              }
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -711,47 +711,127 @@
         navLinks.classList.toggle('active');
     });
 
-    // Form submission handling
-    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+     document.getElementById('contactForm').addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const subject = document.getElementById('service').value;
-        const message = document.getElementById('message').value;
+        // Get form elements
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+        const service = document.getElementById('service');
+        const message = document.getElementById('message');
 
-        console.log(name, email, phone, subject, message);
+        // Simple Validation Logic
+        if (name.value.trim() === '') {
+            alert("Please enter your full name.");
+            name.focus();
+            return;
+        }
+
+        if (email.value.trim() === '') {
+            alert("Please enter your email address.");
+            email.focus();
+            return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email.value.trim())) {
+            alert("Please enter a valid email address.");
+            email.focus();
+            return;
+        }
+
+        if (service.value === '') {
+            alert("Please select a service you're interested in.");
+            service.focus();
+            return;
+        }
+
+        if (message.value.trim().length < 10) {
+            alert("Message should be at least 10 characters.");
+            message.focus();
+            return;
+        }
+
+        // Prepare form data
+        const formData = {
+            name: name.value.trim(),
+            email: email.value.trim(),
+            phone: phone.value.trim(),
+            subject: service.value,
+            message: message.value.trim()
+        };
 
         try {
-            const res = await fetch("https://zerobackend.vercel.app//api/contacts/contact", {
+            const res = await fetch("https://zerobackend.vercel.app/api/contacts", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "Accept": "application/json"
                 },
-                body: JSON.stringify({
-                    name,
-                    email,
-                    phone,
-                    subject,
-                    message,
-                }),
+                body: JSON.stringify(formData)
             });
 
-            const data = await res.json();
-            // console.log(data);
+            if (!res.ok) {
+                const errorText = await res.text();
+                throw new Error(`Server error (${res.status}): ${errorText}`);
+            }
 
-            // Show success alert
-            alert(`Thank you ${name}! Your message has been received. We'll get back to you soon at ${email}.`);
+            const data = await res.json();
+            console.log("Success:", data);
+
+            alert(`Thank you ${formData.name}! Your message has been received.`);
 
             // Reset form
             e.target.reset();
+
         } catch (error) {
             console.error("Error submitting form:", error);
-            alert("There was an error submitting the form. Please try again later.");
+            alert("An error occurred while submitting the form. Please try again later.");
         }
     });
+
+    // Form submission handling
+    // document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    //     e.preventDefault();
+
+    //     // Get form values
+    //     const name = document.getElementById('name').value;
+    //     const email = document.getElementById('email').value;
+    //     const phone = document.getElementById('phone').value;
+    //     const subject = document.getElementById('service').value;
+    //     const message = document.getElementById('message').value;
+
+    //     // console.log(name, email, phone, subject, message);
+
+    //     try {
+    //         const res = await fetch("https://zerobackend.vercel.app/api/contacts/contact", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify({
+    //                 name,
+    //                 email,
+    //                 phone,
+    //                 subject,
+    //                 message,
+    //             }),
+    //         });
+
+    //         const data = await res.json();
+    //         // console.log(data);
+
+    //         // Show success alert
+    //         alert(`Thank you ${name}! Your message has been received. We'll get back to you soon at ${email}.`);
+
+    //         // Reset form
+    //         e.target.reset();
+    //     } catch (error) {
+    //         console.error("Error submitting form:", error);
+    //         alert("There was an error submitting the form. Please try again later.");
+    //     }
+    // });
     </script>
 
 </body>

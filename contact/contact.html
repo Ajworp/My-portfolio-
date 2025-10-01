@@ -761,9 +761,10 @@
             subject: service.value,
             message: message.value.trim()
         };
-
+        
+        // Submit form data
         try {
-            const res = await fetch("https://zerobackend.vercel.app/api/contacts", {
+            const res = await fetch("https://zerobackend.vercel.app/api/contacts/contact", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

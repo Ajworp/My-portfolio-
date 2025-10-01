@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contact ZeroSEK Solutions - Get in touch with our team for web development, cybersecurity, and ERP solutions." />
+    <meta name="keywords" content="ZeroSEK Solutions, Contact, Web Development, VAPT, Cybersecurity, MERN Stack, ERP Systems" />
+    <meta name="author" content="ZeroSEK Solutions" />
+    <title>Contact Us | ZeroSEK Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../assets/herolog.png">
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #fff;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Header */
+        header {
+            backdrop-filter: blur(8px);
+            background-color: rgba(15, 12, 41, 0.8);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            padding: 1rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            border-radius: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-align: center;
+        }
+
+        .logo img {
+            height: 50px;
+            filter: drop-shadow(0 0 #00ffe0);
+        }
+
+        .logo-text {
+            position: relative;
+            left: -72px;
+            top: -10px;
+            color: #f0feff;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00ffe0;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 20px;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #00ffe0, #00a2ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .contact-header p {
+            font-size: 1.2rem;
+            color: #e7e7e7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Contact Content */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #e7e7e7;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #00ffe0;
+            box-shadow: 0 0 0 2px rgba(0, 255, 224, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #00ffe0, #00a2ff);
+            color: #141e30;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 224, 0.4);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 255, 224, 0.2);
+            border-color: rgba(0, 255, 224, 0.3);
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #00ffe0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card p {
+            color: #e7e7e7;
+            margin-bottom: 10px;
+        }
+
+        .info-card a {
+            color: #e7e7e7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-card a:hover {
+            color: #00ffe0;
+        }
+
+        /* Map Section */
+        .map-section {
+            margin-bottom: 60px;
+        }
+
+        .map-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(45deg, #00ffe0, #00a2ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 60px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-header h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #00ffe0, #00a2ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .faq-header p {
+            font-size: 1.2rem;
+            color: #e7e7e7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 255, 224, 0.2);
+            border-color: rgba(0, 255, 224, 0.3);
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #00ffe0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-answer {
+            color: #e7e7e7;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1c1c1c, #0d0d0d);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+        }
+
+        .footer-about p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #334155;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: #00ffe0;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links ul {
+            list-style-type: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            margin-top: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .footer-contactus-links {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-contactus-links:hover {
+            color: rgb(55, 191, 191);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #1f1f1f;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 100%;
+                text-align: right;
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+                backdrop-filter: blur(8px);
+                background-color: rgba(15, 12, 41, 0.8);
+                text-align: center;
+                border-radius: 10px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .contact-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .contact-header p {
+                font-size: 1rem;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .faq-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-item {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="../assets/zeroseklogo.png" alt="Zeroseksolutions Logo" id="logo-img">
+                    <span class="logo-text">Solutions</span>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li class="li-link"><a href="../index.html">Home</a></li>
+                    <li class="li-link"><a href="../about/index.html">About Us</a></li>
+                    <li class="li-link"><a href="../index.html#services">Services</a></li>
+                    <li class="li-link"><a href="../index.html#products">Products</a></li>
+                    <li class="li-link"><a href="../index.html#blog">Blog</a></li>
+                    <li class="li-link"><a href="#contact">Contact</a></li>
+                    <li class="li-link"><a href="../career/career.html">Career</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-header">
+                <h1>Contact Us</h1>
+                <p>Get in touch with our team to discuss your project requirements or learn more about our services.</p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" class="form-control">
+                                <option value="">Select a service</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="cybersecurity">Cybersecurity & VAPT</option>
+                                <option value="erp">ERP Systems</option>
+                                <option value="consulting">IT Consulting</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Tell us about your project or inquiry" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Our Location</h3>
+                        <p>Sarnath, Varanasi, Uttar Pradesh India 221007</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-phone-alt"></i> Phone Numbers</h3>
+                        <p><a href="tel:+916387705669">+91 6387705669</a></p>
+                        <p><a href="tel:+919838587277">+91 9838587277</a></p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-envelope"></i> Email Address</h3>
+                        <p><a href="mailto:contact@zerosek.com">contact@zerosek.com</a></p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-clock"></i> Business Hours</h3>
+                        <p>Monday - Saturday: 9:00 AM - 10:00 PM</p>
+                        <p>Sunday: Emergency Support Only</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section">
+                <h2>Find Us</h2>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22944.008036110372!2d83.00419223762022!3d25.37297453651202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2ee870d6a12b%3A0xa1c385b2ea1fa974!2z4KS44KS-4KSw4KSo4KS-4KSlLCDgpLXgpL7gpLDgpL7gpKPgpLjgpYAsIOCkieCkpOCljeCkpOCksCDgpKrgpY3gpLDgpKbgpYfgpLYgMjIxMDA3!5e1!3m2!1shi!2sin!4v1751201464346!5m2!1shi!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <div class="faq-header">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Find answers to common questions about our services and processes.</p>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <h3 class="faq-question"><i class="fas fa-question-circle"></i> What services does ZeroSEK Solutions offer?</h3>
+                        <p class="faq-answer">We specialize in web development, cybersecurity services including VAPT, ERP system development, and IT consulting. Our team works with modern technologies like MERN stack to deliver robust solutions.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question"><i class="fas fa-question-circle"></i> How long does a typical web development project take?</h3>
+                        <p class="faq-answer">Project timelines vary based on complexity, but most standard websites take 4-8 weeks. Complex applications or enterprise solutions may require 3-6 months. We provide detailed timelines after project assessment.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question"><i class="fas fa-question-circle"></i> Do you provide ongoing support after project completion?</h3>
+                        <p class="faq-answer">Yes, we offer comprehensive maintenance and support packages to ensure your systems remain secure, updated, and perform optimally. Support options range from basic monitoring to full managed services.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question"><i class="fas fa-question-circle"></i> What is your approach to cybersecurity testing?</h3>
+                        <p class="faq-answer">Our VAPT process follows industry standards including OWASP methodologies. We conduct thorough vulnerability assessments, penetration testing, and provide detailed reports with remediation guidance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="../assets/zeroseklogo.png" alt="Ashtrasolutions Logo" loading="lazy">
+                    </div>
+                    <p>Providing cutting-edge security solutions and web development services to help businesses thrive
+                        in the digital landscape.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61578268196863" target="_blank"
+                            class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/zeroseksolution" target="_blank" class="social-link"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/zerosek-solutions-llp-55b2aa374/" target="_blank"
+                            class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/zeroseksolutions/" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#products">Products</a></li>
+                        <li><a href="../portfolio/portfolio.html">Portfolio</a></li>
+                        <li><a href="index.html">About Us</a></li>
+                        <li><a href="../index.html#blog">Blog</a></li>
+                        <!-- <li><a href="#book-meeting">Book a Meeting</a></li> -->
+                        <!-- <li><a href="../index.html#contact">Contact Us</a></li> -->
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <a class="footer-contactus-links"
+                            href="https://www.google.com/maps/place/%E0%A4%B0%E0%A5%81%E0%A4%A6%E0%A5%8D%E0%A4%B0+%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%88%E0%A4%9F/@25.369287,83.023739,348m/data=!3m1!1e3!4m6!3m5!1s0x398e2eefbc0c0719:0x6e1eda5f5d2db608!8m2!3d25.3692869!4d83.023739!16s%2Fg%2F11d_ymjwr6?hl=hi&entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D">Sarnath,
+                            Varanasi, Uttar Pradesh India 221007</a></p>
+                    <p><i class="fas fa-phone-alt"></i>
+                        <a class="footer-contactus-links" href="tel:+916387705669">+916387705669</a>
+                        <a class="footer-contactus-links" href="tel:+919838587277">+919838587277</a>
+                    </p>
+                    <p><i class="fas fa-envelope"></i> <a class="footer-contactus-links"
+                            href="mailto:contact@zerosek.com">contact@zerosek.com</a></p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 10:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ZeroSek Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Form submission handling
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const subject = document.getElementById('service').value;
+        const message = document.getElementById('message').value;
+
+        console.log(name, email, phone, subject, message);
+
+        try {
+            const res = await fetch("https://zerobackend.vercel.app//api/contacts/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    phone,
+                    subject,
+                    message,
+                }),
+            });
+
+            const data = await res.json();
+            // console.log(data);
+
+            // Show success alert
+            alert(`Thank you ${name}! Your message has been received. We'll get back to you soon at ${email}.`);
+
+            // Reset form
+            e.target.reset();
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            alert("There was an error submitting the form. Please try again later.");
+        }
+    });
+    </script>
+
+</body>
+</html>

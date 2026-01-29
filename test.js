@@ -140,7 +140,8 @@ const initMeetingForm = () => {
     const messageTextarea = document.getElementById('message');
     
     // Google Sheets Configuration
-    const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwHVrlXsgqyht8BHFXM1woE8eO-yUAR8YosC5nZew4H13SFgXCD2qIHJy_cwuMxLPslqw/exec'; // Replace with your Google Apps Script URL
+    const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyWDzcQqVZS4mjciiM4WZ2HbZnAXrSkM_nFyhuc_Qw_CIBg107srPG0rpZvpxTsTg0S/exec';
+        // 'https://script.google.com/macros/s/AKfycbwHVrlXsgqyht8BHFXM1woE8eO-yUAR8YosC5nZew4H13SFgXCD2qIHJy_cwuMxLPslqw/exec'; // Replace with your Google Apps Script URL
     
     // Character counter for message
     if (messageTextarea && charCount) {
@@ -223,6 +224,7 @@ const handleSubmit = async (e) => {
     await fetch(GOOGLE_SHEETS_URL, {
       method: "POST",
       body: formDataToSend, // ✅ FormData ONLY
+      mode: "cors"
     });
 
     // ✅ assume success (same as previous project)
@@ -379,4 +381,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // };
 
 // // Initialize parallax
+
 // window.addEventListener('DOMContentLoaded', initParallax);

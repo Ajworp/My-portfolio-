@@ -224,7 +224,7 @@ const handleSubmit = async (e) => {
     await fetch(GOOGLE_SHEETS_URL, {
       method: "POST",
       body: formDataToSend, // ✅ FormData ONLY
-      mode: "cors"
+      mode: "no-cors"
     });
 
     // ✅ assume success (same as previous project)
@@ -383,3 +383,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // // Initialize parallax
 
 // window.addEventListener('DOMContentLoaded', initParallax);
+
